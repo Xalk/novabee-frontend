@@ -10,9 +10,12 @@ import {
     TextInput,
     EditButton,
     DeleteButton,
-    ExportButton
+    ExportButton,
+    FunctionField,
+    NumberField
 } from 'react-admin';
-import {Stack} from '@mui/material';
+import {ImageListItem, Stack} from '@mui/material';
+import {IProduct} from "../../types";
 
 
 const productFilters = [
@@ -31,18 +34,33 @@ const ListToolbar = () => (
 )
 
 
-const ProductList: React.FC = () => {
+const ProductList: React.FC = (props) => {
 
-
+    console.log(props)
     return (
-        <ListBase>
+        <ListBase {...props}>
             <ListToolbar/>
             <Datagrid>
                 <TextField source='id'/>
                 <TextField source='title'/>
-                <TextField source='price'/>
+                <NumberField source='price'
+                             locales="fr-FR"
+                             options={{style: 'currency', currency: 'UAH'}}
+                             textAlign="center" fontWeight="bold"/>
                 <TextField source='description'/>
-                <TextField source='imageUrl'/>
+                <FunctionField
+                    label="Image"
+                    render={(record: IProduct) => {
+                        return (
+                            <ImageListItem key={record.imageUrl} sx={{maxWidth: 100}}>
+                                <img
+                                    src={`http://localhost:5000${record.imageUrl}`}
+                                />
+                            </ImageListItem>
+                        );
+                    }}
+                />
+
                 <EditButton resource='/product'/>
                 <DeleteButton resource='product'/>
             </Datagrid>

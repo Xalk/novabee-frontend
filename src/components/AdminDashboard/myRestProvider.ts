@@ -27,7 +27,6 @@ export default {
 
 
         return httpClient(url).then(({headers, json}) => {
-            // headers.append()
             return {
                 data: json.data.map((resource: any) => {
                     return {...resource, id: resource._id}

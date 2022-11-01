@@ -1,21 +1,42 @@
 import React from 'react';
 import {
-    List,
+    CreateButton,
     Datagrid,
+    FilterButton,
+    FilterForm,
+    ListBase,
+    Pagination,
     TextField,
-    DateField,
+    TextInput,
     EditButton,
-    DeleteButton
-} from 'react-admin'
-
-interface ProductListProps {
-
-}
+    DeleteButton,
+    ExportButton
+} from 'react-admin';
+import {Stack} from '@mui/material';
 
 
-const ProductList: React.FC<ProductListProps> = (props) => {
+const productFilters = [
+    <TextInput label="Search" source="title" alwaysOn/>,
+];
+
+const ListToolbar = () => (
+    <Stack direction="row" justifyContent="space-between">
+        <FilterForm filters={productFilters}/>
+        <Stack direction="row" alignItems="center" gap="10px">
+            <FilterButton filters={productFilters}/>
+            <CreateButton resource='product'/>
+            <ExportButton/>
+        </Stack>
+    </Stack>
+)
+
+
+const ProductList: React.FC = () => {
+
+
     return (
-        <List {...props}>
+        <ListBase>
+            <ListToolbar/>
             <Datagrid>
                 <TextField source='id'/>
                 <TextField source='title'/>
@@ -23,9 +44,10 @@ const ProductList: React.FC<ProductListProps> = (props) => {
                 <TextField source='description'/>
                 <TextField source='imageUrl'/>
                 <EditButton resource='/product'/>
-                <DeleteButton resource='/product'/>
+                <DeleteButton resource='product'/>
             </Datagrid>
-        </List>
+            <Pagination/>
+        </ListBase>
     );
 };
 

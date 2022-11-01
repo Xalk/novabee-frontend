@@ -1,12 +1,12 @@
 import {fetchUtils} from 'react-admin';
 import {stringify} from 'query-string';
 
-const apiUrl = 'http://localhost:4444/api';
+const apiUrl = 'http://localhost:5000/api';
 // const httpClient = fetchUtils.fetchJson;
 
-const httpClient = (url:any, options:any = {}) => {
+const httpClient = (url: any, options: any = {}) => {
     if (!options.headers) {
-        options.headers = new Headers({ Accept: 'application/json' });
+        options.headers = new Headers({Accept: 'application/json'});
     }
     // const token = localStorage.getItem('token');
     const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzRiZGJjODNhOGIzZmQxNjhjMGZlNWIiLCJpYXQiOjE2NjcyNDk0ODIsImV4cCI6MTY2OTg0MTQ4Mn0.4H0ESJ6pgLQirrEiUBPFkK55l1ac4ON-3Ov7iBLyqoo"
@@ -97,14 +97,20 @@ export default {
             data: {...params.data, id: json._id},
         })),
 
-    delete: (resource: any, params: any) =>
-        httpClient(`${apiUrl}/${resource}/${params.id}`, {
+    delete: (resource: any, params: any) => {
+        console.log(resource)
+        console.log(params)
+        return httpClient(`${apiUrl}/${resource}/${params.id}`, {
             method: 'DELETE',
-            body: JSON.stringify(params.id),
-        }).then(({json}) => ({
-            ...json,
-            id: json._id,
-        })),
+            body: '',
+        }).then(({json}) => {
+            console.log(json)
+            const resJson = {...json.data, id: json.data._id}
+            return {
+                data: resJson
+            }
+        })
+    },
 
     deleteMany: (resource: any, params: any) => {
         const query = {

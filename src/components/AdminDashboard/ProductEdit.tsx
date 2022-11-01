@@ -1,5 +1,5 @@
 import React from 'react';
-import {Edit, SimpleForm, TextInput} from 'react-admin';
+import {Edit, SimpleForm, TextInput, NumberInput} from 'react-admin';
 
 interface ProductEditProps {
 
@@ -13,7 +13,7 @@ const ProductEdit: React.FC<ProductEditProps> = (props) => {
                 <SimpleForm>
                     <TextInput disabled source="id"/>
                     <TextInput source="title"/>
-                    <TextInput source='price'/>
+                    <NumberInput source='price'/>
                     <TextInput source='description'/>
                     <TextInput source='imageUrl'/>
                 </SimpleForm>

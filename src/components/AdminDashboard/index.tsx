@@ -1,10 +1,10 @@
 import React from 'react';
 import {Admin, Resource} from 'react-admin'
-import ProductList from "./ProductList";
+import ProductList from "./Product/ProductList";
 import myRestProvider from "./myRestProvider";
-import ProductEdit from "./ProductEdit";
+import ProductEdit from "./Product/ProductEdit";
 import InventoryIcon from '@mui/icons-material/Inventory';
-import ProductCreate from "./ProductCreate";
+import ProductCreate from "./Product/ProductCreate";
 
 interface AdminDashboardProps {
 

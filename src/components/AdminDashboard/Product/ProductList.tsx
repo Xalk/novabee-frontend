@@ -15,7 +15,7 @@ import {
     NumberField
 } from 'react-admin';
 import {ImageListItem, Stack} from '@mui/material';
-import {IProduct} from "../../types";
+import {IProduct} from "../../../types";
 
 
 const productFilters = [

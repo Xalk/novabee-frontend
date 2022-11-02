@@ -7,8 +7,8 @@ import {
     ImageInput,
     ImageField
 } from 'react-admin'
-import {IProduct} from "../../types";
-import {API} from "../../api";
+import {API} from "../../../api";
+import {IProduct} from "../../../types";
 
 
 const ProductCreate: React.FC = () => {

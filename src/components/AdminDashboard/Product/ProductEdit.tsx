@@ -12,7 +12,7 @@ const ProductEdit: React.FC<ProductEditProps> = (props) => {
             <Edit {...props}>
                 <SimpleForm>
                     <TextInput disabled source="id"/>
-                    <TextInput source="title"/>
+                    {/*<TextInput source="products"/>*/}
                     <NumberInput source='price'/>
                     <TextInput source='description'/>
                     <TextInput source='imageUrl'/>

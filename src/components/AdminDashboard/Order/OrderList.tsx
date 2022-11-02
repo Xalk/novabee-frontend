@@ -17,31 +17,38 @@ import {
     SingleFieldList,
     ChipField,
     List,
-    DateField
+    DateField,
+    useRecordContext,
+    WithRecord,
+    SelectInput
 } from 'react-admin';
-import {ImageListItem, Stack} from '@mui/material';
+import {Chip, ImageListItem, Stack} from '@mui/material';
 import {IProduct} from "../../../types";
 
 
-const productFilters = [
-    <TextInput label="Search" source="title" alwaysOn/>,
+const orderStatus = ["pending", "accepted", "processing", "sent", "received", "rejected"]
+const orderColors = ["#ffa726", "#66bb6a", "#80deea", "#29b6f6", "#bdbdbd", "#d32f2f"]
+
+
+const orderFilters = [
+    <TextInput label="Status" source="status"/>,
+
 ];
+
 
 const ListToolbar = () => (
     <Stack direction="row" justifyContent="space-between">
-        <FilterForm filters={productFilters}/>
-        <Stack direction="row" alignItems="center" gap="10px">
-            <FilterButton filters={productFilters}/>
-            <CreateButton resource='order'/>
-            <ExportButton/>
-        </Stack>
+
+        <FilterForm filters={orderFilters}/>
+        <div>
+            <FilterButton filters={orderFilters}/>
+        </div>
+        <ExportButton/>
     </Stack>
 )
 
 
 const OrderList: React.FC = (props) => {
-
-    console.log(props)
     return (
         <ListBase {...props}>
             <ListToolbar/>
@@ -65,6 +72,7 @@ const OrderList: React.FC = (props) => {
                                 );
                             }}
                         />
+
                     </Datagrid>
                 </ArrayField>
 
@@ -72,8 +80,20 @@ const OrderList: React.FC = (props) => {
                 <TextField source='user.email'/>
                 <TextField source='address.city'/>
                 <TextField source='address.street'/>
-                <TextField source='status'/>
-                <DateField  source='createdAt' showTime/>
+                <WithRecord label="status" render={(record) => {
+                    const idx = orderStatus.indexOf(`${record.status}`)
+                    const chipColor = `${orderStatus[idx] === record.status && orderColors[idx]}`
+                    return <>
+                        {
+
+                            <Chip label={record.status}
+                                  style={{backgroundColor: chipColor, color: "white"}}/>
+
+
+                        }
+                    </>
+                }}/>
+                <DateField source='createdAt' showTime/>
 
                 <EditButton resource='/order'/>
                 <DeleteButton resource='order'/>

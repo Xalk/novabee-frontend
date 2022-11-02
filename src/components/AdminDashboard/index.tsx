@@ -7,6 +7,7 @@ import InventoryIcon from '@mui/icons-material/Inventory';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import ProductCreate from "./Product/ProductCreate";
 import OrderList from "./Order/OrderList";
+import OrderEdit from "./Order/OrderEdit";
 
 interface AdminDashboardProps {
 
@@ -23,7 +24,9 @@ const AdminDashboard: React.FC<AdminDashboardProps> = () => {
                       icon={InventoryIcon}/>
             <Resource name='order'
                       list={OrderList}
-                      icon={ShoppingCartIcon}/>
+                      icon={ShoppingCartIcon}
+                      edit={OrderEdit}
+            />
         </Admin>
     );
 };

@@ -7,30 +7,14 @@ import {
     ImageInput,
     ImageField
 } from 'react-admin'
-import {API} from "../../../api";
-import {IProduct} from "../../../types";
+
+import {useProductUploadImage} from "../../../utils/useUploadImage";
 
 
 const ProductCreate: React.FC = () => {
 
-    const transform = async (data: IProduct) => {
-        try {
-            console.log(data)
-            const formData = new FormData()
-            const file = data.imageFile.rawFile
-            formData.append('image', file)
-            const res = await API.upload(formData)
-            const {imageFile, ...reqData} = data
+    const transform = useProductUploadImage()
 
-            return {
-                ...reqData,
-                imageUrl: `${res.url}`,
-            }
-
-        } catch (e) {
-            console.log(e)
-        }
-    }
 
     return (
         <Create transform={transform}>

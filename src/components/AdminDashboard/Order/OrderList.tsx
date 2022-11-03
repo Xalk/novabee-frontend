@@ -54,8 +54,6 @@ const OrderList: React.FC = (props) => {
             <ListToolbar/>
             <Datagrid>
                 <TextField source='id'/>
-                {/*<TextField source='products'/>*/}
-
                 <ArrayField source="products">
                     <Datagrid bulkActionButtons={false}>
                         <TextField source='title'/>
@@ -72,10 +70,12 @@ const OrderList: React.FC = (props) => {
                                 );
                             }}
                         />
-
                     </Datagrid>
                 </ArrayField>
-
+                <NumberField source='total'
+                             locales="fr-FR"
+                             options={{style: 'currency', currency: 'UAH'}}
+                             textAlign="center" fontWeight="bold"/>
                 <TextField source='user.fullName'/>
                 <TextField source='user.email'/>
                 <TextField source='address.city'/>
@@ -98,9 +98,11 @@ const OrderList: React.FC = (props) => {
                 <EditButton resource='/order'/>
                 <DeleteButton resource='order'/>
             </Datagrid>
-            <Pagination/>
+            <Pagination rowsPerPageOptions={[5, 10, 25]}/>
         </ListBase>
     );
 };
+
+
 
 export default OrderList;

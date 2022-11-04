@@ -1,0 +1,144 @@
+.container {
+
+  .start {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 50px;
+    margin: 50px auto;
+    max-width: 1176px;
+
+    .left {
+
+      .quickInfo {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+        gap: 50px;
+
+        h1 {
+          font-size: 36px;
+          line-height: 42px;
+          font-weight: 600;
+          color: #424143;
+
+          span {
+            color: #fab040;
+          }
+        }
+
+        p {
+          font-size: 16px;
+          line-height: 26px;
+        }
+
+
+        .buttons {
+          display: flex;
+          flex-direction: column;
+          gap: 30px;
+
+          button {
+            color: white;
+            background-color: #fab040;
+            border-radius: 10px;
+            padding: 15px 0;
+            font-weight: bold;
+            font-size: 16px;
+          }
+
+          .download {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+          }
+
+        }
+      }
+    }
+
+    .right {
+
+      .slider {
+
+        .imageBlock {
+
+          padding: 50px;
+
+          img{
+            border-radius: 20px;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+          }
+
+        }
+      }
+
+    }
+  }
+
+  .benefits {
+    background-color: #fff9c4;
+
+    .inner {
+
+      margin: 0 auto;
+      max-width: 1176px;
+      padding: 50px;
+
+      h2 {
+        font-size: 28px;
+        line-height: 60px;
+        font-weight: bold;
+      }
+
+      .grid {
+        margin-top: 30px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+        grid-gap: 20px;
+
+        .card {
+
+          background-color: white;
+          border-radius: 10px;
+          padding: 40px;
+          box-shadow: 0 1px 3px 0 rgb(0 0 0 / 20%);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 16px;
+
+          p {
+            padding-left: 20px;
+          }
+        }
+      }
+    }
+  }
+
+  .howItWorks {
+    margin: 0 auto;
+    max-width: 1176px;
+    padding: 50px;
+
+    h2 {
+      font-size: 28px;
+      line-height: 60px;
+      font-weight: bold;
+    }
+
+    .description {
+      margin-top: 50px;
+
+      p {
+        margin-top: 16px;
+        font-size: 16px;
+        line-height: 26px;
+      }
+    }
+  }
+}
+

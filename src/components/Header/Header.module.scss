@@ -42,8 +42,7 @@ header {
 
         ul {
           display: flex;
-          //justify-content: center;
-          //align-items: end;
+
           gap: 25px;
 
           li {
@@ -51,6 +50,7 @@ header {
             padding: 25px 0;
             cursor: pointer;
             font-weight: bold;
+            color: black;
 
             &:hover {
               color: #fab040;
@@ -65,6 +65,7 @@ header {
         display: flex;
         align-items: center;
         gap: 20px;
+
       }
     }
   }

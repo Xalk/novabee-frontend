@@ -6,13 +6,12 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Divider from "@mui/material/Divider";
 import ListItemIcon from "@mui/material/ListItemIcon";
-import PersonAdd from "@mui/icons-material/PersonAdd";
 import Settings from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import InventoryRoundedIcon from '@mui/icons-material/InventoryRounded';
-
 import {Typography} from "@mui/material";
+import {useNavigate} from "react-router-dom";
 
 interface UserProps {
 
@@ -20,15 +19,23 @@ interface UserProps {
 
 
 const User: React.FC<UserProps> = () => {
+    const navigate = useNavigate();
+    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+    const open = Boolean(anchorEl);
+    const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+        setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
 
- const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
- const open = Boolean(anchorEl);
- const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-  setAnchorEl(event.currentTarget);
- };
- const handleClose = () => {
-  setAnchorEl(null);
- };
+
+    const onClickOrderHandler = () => {
+        navigate("/order");
+    }
+    const onClickCartHandler = () => {
+        navigate("/cart");
+    }
 
     return (
         <div className={s.user}>
@@ -81,11 +88,11 @@ const User: React.FC<UserProps> = () => {
                 transformOrigin={{horizontal: 'right', vertical: 'top'}}
                 anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}
             >
-                <MenuItem>
+                <MenuItem onClick={onClickOrderHandler}>
                     <InventoryRoundedIcon/>
                     <Typography ml={2}>Мої замовлення</Typography>
                 </MenuItem>
-                <MenuItem>
+                <MenuItem onClick={onClickCartHandler}>
                     <ShoppingCartOutlinedIcon/>
                     <Typography ml={2}>Корзина</Typography>
                 </MenuItem>

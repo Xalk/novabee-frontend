@@ -30,11 +30,15 @@ const Footer: React.FC<FooterProps> = () => {
                     </div>
                 </div>
                 <div className={s.app}>
-                    <img src={googlePlayDownload} alt="google play"/>
-                    <img src={appleDownload} alt="apple store"/>
-                    <a>Політика конфіденційності</a>
-                    <a>Публічна оферта на обладнання</a>
-                    <a>Публічная оферта на послуги</a>
+                    <div className={s.downloads}>
+                        <img src={googlePlayDownload} alt="google play"/>
+                        <img src={appleDownload} alt="apple store"/>
+                    </div>
+                    <div className={s.links}>
+                        <a>Політика конфіденційності</a>
+                        <a>Публічна оферта на обладнання</a>
+                        <a>Публічная оферта на послуги</a>
+                    </div>
                 </div>
             </div>
 

@@ -26,6 +26,7 @@ header {
     .logo {
       max-width: 150px;
     }
+
     box-shadow: 0 2px 4px -2px rgba(128, 128, 128, 0.5);
 
     .inner {
@@ -35,12 +36,14 @@ header {
       align-items: center;
       margin: 0 auto;
       max-width: 1176px;
-      .navbar {
 
+      .navbar {
 
 
         ul {
           display: flex;
+          //justify-content: center;
+          //align-items: end;
           gap: 25px;
 
           li {
@@ -58,7 +61,11 @@ header {
         }
       }
 
-
+      .user {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
     }
   }
 

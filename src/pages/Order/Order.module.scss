@@ -1,0 +1,79 @@
+.container {
+
+  .orders {
+    max-width: 1176px;
+    padding: 50px;
+    margin: 0 auto;
+
+    h2 {
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .items {
+
+      margin-top: 50px;
+      .card {
+        display: flex;
+        flex-direction: column;
+        background-color: #fff9c4;
+        padding: 20px;
+        border-radius: 10px;
+        font-size: 16px;
+        margin-bottom: 80px;
+        span {
+          font-weight: bold;
+        }
+
+        .info {
+          margin-bottom: 30px;
+          margin-top: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 50px;
+
+
+          .status {
+            background-color: #ffa726;
+            color: white;
+            padding: 10px;
+            border-radius: 30px;
+          }
+        }
+
+        .products {
+
+          .card {
+            background-color: white;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 20%);
+            padding: 20px;
+
+            .product {
+              display: flex;
+              align-items: center;
+              gap: 10px;
+
+              img {
+                width: 100px;
+                border-radius: 5px;
+              }
+            }
+          }
+        }
+
+        .summary {
+          margin: 20px 0;
+          padding: 0 20px;
+          display: flex;
+          justify-content: space-between;
+        }
+      }
+    }
+  }
+}

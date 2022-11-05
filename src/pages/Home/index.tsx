@@ -80,7 +80,6 @@ const Home: React.FC<HomeProps> = () => {
             <div className={s.benefits}>
                 <div className={s.inner}>
 
-
                     <h2>Що отримує бджоляр</h2>
                     <div className={s.grid}>
                         <div className={s.card}>

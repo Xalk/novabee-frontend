@@ -66,6 +66,17 @@ header {
         align-items: center;
         gap: 20px;
 
+        .signIn{
+          padding: 25px 0;
+          cursor: pointer;
+          font-weight: bold;
+          color: #fab040;
+          &:hover {
+            color: #fab040;
+            box-shadow: 0 2px 0 0 #fab040;
+          }
+        }
+
       }
     }
   }

@@ -41,16 +41,22 @@ const User: React.FC<UserProps> = () => {
         <div className={s.user}>
             <p>UA</p>
 
-            <IconButton
-                onClick={handleClick}
-                size="small"
-                sx={{ml: 2}}
-                aria-controls={open ? 'account-menu' : undefined}
-                aria-haspopup="true"
-                aria-expanded={open ? 'true' : undefined}
-            >
-                <img src={avatarBeekeeper} alt="avatarBeekeeper" width='55px'/>
-            </IconButton>
+            {
+                // <IconButton
+                //     onClick={handleClick}
+                //     size="small"
+                //     sx={{ml: 2}}
+                //     aria-controls={open ? 'account-menu' : undefined}
+                //     aria-haspopup="true"
+                //     aria-expanded={open ? 'true' : undefined}
+                // >
+                //     <img src={avatarBeekeeper} alt="avatarBeekeeper" width='55px'/>
+                // </IconButton>
+
+                <div className={s.signIn}>
+                    Увійти
+                </div>
+            }
 
 
             <Menu

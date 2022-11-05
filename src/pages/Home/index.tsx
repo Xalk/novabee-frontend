@@ -8,13 +8,19 @@ import sliderImageTemp3 from '../../assets/sliderImageTemp3.jpg'
 import NotificationsActiveOutlinedIcon from '@mui/icons-material/NotificationsActiveOutlined';
 import {Splide, SplideSlide} from "@splidejs/react-splide";
 import '@splidejs/splide/dist/css/splide.min.css';
-
+import {useNavigate} from "react-router-dom";
 interface HomeProps {
 
 }
 
 
 const Home: React.FC<HomeProps> = () => {
+
+    const navigate = useNavigate();
+    const onClickCartHandler = () => {
+        navigate("/shop");
+    }
+
     return (
         <div className={s.container}>
             <div className={s.start}>
@@ -31,7 +37,7 @@ const Home: React.FC<HomeProps> = () => {
                         </p>
 
                         <div className={s.buttons}>
-                            <button>
+                            <button onClick={onClickCartHandler}>
                                 Замовити
                             </button>
                             <div className={s.download}>

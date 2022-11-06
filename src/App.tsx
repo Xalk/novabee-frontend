@@ -1,8 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import Header from "./components/Header";
 import './App.scss'
 import Home from "./pages/Home";
-import Footer from "./components/Footer";
 import Shop from "./pages/Shop";
 import Cart from "./pages/Cart";
 import Order from "./pages/Order";
@@ -10,10 +8,12 @@ import {Routes, Route} from "react-router-dom";
 import AppContext from "./context";
 import {IUser} from "./context/types";
 import {UserAPI} from "./api";
+import AdminDashboard from "./components/AdminDashboard";
+import Layout from "./components/Layout";
 
 function App() {
 
-    const [user, setUser] = useState<IUser| null>()
+    const [user, setUser] = useState<IUser | null>()
 
     useEffect(() => {
         initUser()
@@ -30,19 +30,22 @@ function App() {
     }
 
 
-
     return (
         <AppContext.Provider value={{user, setUser}}>
             <div className="wrapper">
-                <Header/>
+
                 <Routes>
-                    <Route path="/" element={<Home/>}/>
-                    <Route path="shop" element={<Shop/>}/>
-                    <Route path="cart" element={<Cart/>}/>
-                    <Route path="order" element={<Order/>}/>
+                    <Route path="/" element={<Layout/>}>
+                        <Route path="/" element={<Home/>}/>
+                        <Route path="shop" element={<Shop/>}/>
+                        <Route path="cart" element={<Cart/>}/>
+                        <Route path="order" element={<Order/>}/>
+                    </Route>
+                    <Route path="/dashboard/*" element={<AdminDashboard/>}/>
                 </Routes>
-                <Footer/>
+
             </div>
+
         </AppContext.Provider>
     );
 }

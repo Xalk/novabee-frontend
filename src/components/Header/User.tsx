@@ -42,12 +42,12 @@ const User: React.FC<UserProps> = ({onClockModalOpen}) => {
         localStorage.removeItem('access_key')
     }
 
-    const onClickOrderHandler = () => {
-        navigate("/order");
-    }
-    const onClickCartHandler = () => {
-        navigate("/cart");
-    }
+    const onClickOrderHandler = () => navigate("/order");
+
+    const onClickCartHandler = () => navigate("/cart");
+
+    const onClickDashboardHandler = () => navigate("/dashboard");
+
 
     return (
         <div className={s.user}>
@@ -123,7 +123,7 @@ const User: React.FC<UserProps> = ({onClockModalOpen}) => {
                     {t('Settings')}
                 </MenuItem>
                 {
-                    user?.role === 'admin' && <MenuItem>
+                    user?.role === 'admin' && <MenuItem onClick={onClickDashboardHandler}>
                         <ListItemIcon>
                             <DashboardCustomizeOutlinedIcon fontSize="small"/>
                         </ListItemIcon>

@@ -8,6 +8,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import ProductCreate from "./Product/ProductCreate";
 import OrderList from "./Order/OrderList";
 import OrderEdit from "./Order/OrderEdit";
+import MyLayout from "./AdminLayout";
 
 interface AdminDashboardProps {
 
@@ -16,7 +17,7 @@ interface AdminDashboardProps {
 
 const AdminDashboard: React.FC<AdminDashboardProps> = () => {
     return (
-        <Admin dataProvider={myRestProvider}>
+        <Admin dataProvider={myRestProvider} basename="/dashboard" layout={MyLayout}>
             <Resource name='product'
                       list={ProductList}
                       edit={ProductEdit}

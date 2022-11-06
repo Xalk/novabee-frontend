@@ -10,6 +10,7 @@ import Settings from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import InventoryRoundedIcon from '@mui/icons-material/InventoryRounded';
+import DashboardCustomizeOutlinedIcon from '@mui/icons-material/DashboardCustomizeOutlined';
 import {Typography} from "@mui/material";
 import {useNavigate} from "react-router-dom";
 import {useTranslation} from "react-i18next";
@@ -22,7 +23,7 @@ interface UserProps {
 
 const User: React.FC<UserProps> = ({onClockModalOpen}) => {
 
-    const {user} = useContext(AppContext);
+    const {user, setUser} = useContext(AppContext);
 
     const {t} = useTranslation();
 
@@ -36,7 +37,10 @@ const User: React.FC<UserProps> = ({onClockModalOpen}) => {
     const handleClose = () => {
         setAnchorEl(null);
     };
-
+    const onClickLogout = () => {
+        setUser(null)
+        localStorage.removeItem('access_key')
+    }
 
     const onClickOrderHandler = () => {
         navigate("/order");
@@ -118,7 +122,15 @@ const User: React.FC<UserProps> = ({onClockModalOpen}) => {
                     </ListItemIcon>
                     {t('Settings')}
                 </MenuItem>
-                <MenuItem>
+                {
+                    user?.role === 'admin' && <MenuItem>
+                        <ListItemIcon>
+                            <DashboardCustomizeOutlinedIcon fontSize="small"/>
+                        </ListItemIcon>
+                        {t('Dashboard')}
+                    </MenuItem>
+                }
+                <MenuItem onClick={onClickLogout}>
                     <ListItemIcon>
                         <Logout fontSize="small"/>
                     </ListItemIcon>

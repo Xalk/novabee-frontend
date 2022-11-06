@@ -13,7 +13,7 @@ import {UserAPI} from "./api";
 
 function App() {
 
-    const [user, setUser] = useState<IUser>()
+    const [user, setUser] = useState<IUser| null>()
 
     useEffect(() => {
         initUser()
@@ -28,6 +28,8 @@ function App() {
             console.log(e)
         }
     }
+
+
 
     return (
         <AppContext.Provider value={{user, setUser}}>

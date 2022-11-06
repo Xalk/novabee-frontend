@@ -1,6 +1,6 @@
 export interface AppContextInterface {
     user?: IUser | null,
-    setUser: (data: IUser)=>void
+    setUser: (data: IUser | null) => void
 }
 
 export interface IUser {

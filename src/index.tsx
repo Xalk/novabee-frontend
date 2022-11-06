@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import './App.scss';
 import App from './App';
 import {BrowserRouter} from "react-router-dom";
+import './utils/i18n';
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
@@ -10,7 +11,9 @@ const root = ReactDOM.createRoot(
 root.render(
     <React.StrictMode>
         <BrowserRouter>
-            <App/>
+            <Suspense fallback={(<div>Loading</div>)}>
+                <App/>
+            </Suspense>
         </BrowserRouter>
     </React.StrictMode>
 );

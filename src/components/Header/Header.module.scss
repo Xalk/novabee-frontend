@@ -38,7 +38,19 @@ header {
       max-width: 1176px;
 
       .navbar {
+        p {
+          line-height: inherit;
+        }
 
+        select{
+          font-weight: bold;
+          cursor: pointer;
+          option{
+            cursor: pointer;
+            margin-bottom: 20px;
+
+          }
+        }
 
         ul {
           display: flex;
@@ -66,11 +78,12 @@ header {
         align-items: center;
         gap: 20px;
 
-        .signIn{
+        .signIn {
           padding: 25px 0;
           cursor: pointer;
           font-weight: bold;
           color: #fab040;
+
           &:hover {
             color: #fab040;
             box-shadow: 0 2px 0 0 #fab040;

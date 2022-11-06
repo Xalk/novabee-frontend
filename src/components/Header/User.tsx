@@ -12,13 +12,18 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import InventoryRoundedIcon from '@mui/icons-material/InventoryRounded';
 import {Typography} from "@mui/material";
 import {useNavigate} from "react-router-dom";
+import {useTranslation} from "react-i18next";
 
 interface UserProps {
-
+    onClockModalOpen: ()=>void
 }
 
 
-const User: React.FC<UserProps> = () => {
+const User: React.FC<UserProps> = ({onClockModalOpen}) => {
+
+    const { t } = useTranslation();
+
+
     const navigate = useNavigate();
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
@@ -39,7 +44,6 @@ const User: React.FC<UserProps> = () => {
 
     return (
         <div className={s.user}>
-            <p>UA</p>
 
             {
                 // <IconButton
@@ -53,8 +57,8 @@ const User: React.FC<UserProps> = () => {
                 //     <img src={avatarBeekeeper} alt="avatarBeekeeper" width='55px'/>
                 // </IconButton>
 
-                <div className={s.signIn}>
-                    Увійти
+                <div className={s.signIn} onClick={onClockModalOpen}>
+                    {t('SignIn')}
                 </div>
             }
 
@@ -96,24 +100,24 @@ const User: React.FC<UserProps> = () => {
             >
                 <MenuItem onClick={onClickOrderHandler}>
                     <InventoryRoundedIcon/>
-                    <Typography ml={2}>Мої замовлення</Typography>
+                    <Typography ml={2}>{t('MyOrders')}</Typography>
                 </MenuItem>
                 <MenuItem onClick={onClickCartHandler}>
                     <ShoppingCartOutlinedIcon/>
-                    <Typography ml={2}>Корзина</Typography>
+                    <Typography ml={2}>{t('Cart')}</Typography>
                 </MenuItem>
                 <Divider/>
                 <MenuItem>
                     <ListItemIcon>
                         <Settings fontSize="small"/>
                     </ListItemIcon>
-                    Налаштування
+                    {t('Settings')}
                 </MenuItem>
                 <MenuItem>
                     <ListItemIcon>
                         <Logout fontSize="small"/>
                     </ListItemIcon>
-                    Вийти
+                    {t('Logout')}
                 </MenuItem>
             </Menu>
         </div>

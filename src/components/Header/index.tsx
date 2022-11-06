@@ -6,10 +6,27 @@ import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import {Link} from "react-router-dom";
 
 
+import {useTranslation} from 'react-i18next';
+import i18next from 'i18next';
+
 import User from "./User";
+import Signing from "../Signing";
 
 
 function Header() {
+
+    const {t} = useTranslation();
+
+    function handleClick(lang: string) {
+        i18next.changeLanguage(lang)
+    }
+
+
+    const onChangeLang = (lang: string) => {
+        handleClick(lang)
+    }
+
+    const [openSigning, setSigningOpen] = React.useState(false);
 
 
     return (
@@ -38,23 +55,32 @@ function Header() {
                     </Link>
                     <div className={s.navbar}>
                         <ul>
-                            <li>Система Novabee</li>
-                            <li>Користь</li>
-                            <li>Як це працює</li>
-                            <li>Обладнання</li>
+                            <li>{t('NovabeeSystem')}</li>
+                            <li>{t('Benefits')}</li>
+                            <li>{t('HowItWorks')}</li>
+                            <li>{t('Equipment')}</li>
 
                             <Link to="/shop">
-                                <li>Замовити</li>
+                                <li>{t('Order')}</li>
                             </Link>
                             <li>FAQ</li>
 
+                            <select onChange={(e) => onChangeLang(e.target.value)}>
+                                <option value='uk'>
+                                    UA
+                                </option>
+                                <option value='en'>
+                                    EN
+                                </option>
+                            </select>
+
                         </ul>
                     </div>
-                    <User/>
+                    <User onClockModalOpen={()=> setSigningOpen(true)}/>
+                    <Signing openSigning={openSigning} setSigningOpen={(b)=>setSigningOpen(b)}/>
 
                 </div>
             </div>
-
 
         </header>
     );

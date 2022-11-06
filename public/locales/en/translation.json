@@ -1,0 +1,58 @@
+{
+  "SignIn": "Sign in",
+  "NovabeeSystem": "Novabee System",
+  "Benefits": "Benefits",
+  "HowItWorks": "How It Works",
+  "Equipment": "Equipment",
+  "Order": "Order",
+  "MyOrders": "My orders",
+  "Cart": "Cart",
+  "Settings": "Settings",
+  "Logout": "Logout",
+  "Footer": {
+    "Social": "Our social networks:",
+    "links": {
+      "1": "Privacy Policy",
+      "2": "Public offer for equipment",
+      "3": "Public offer for services"
+    }
+  },
+  "HomePage": {
+    "Tagline": "a smart apiary in your smartphone!",
+    "MainDescription": "Monitor the state of each hive, keep track of all actions, receive instant notifications in case of emergency situations",
+    "Benefits": "What the beekeeper gets",
+    "Card1": "Instant notification in case of any emergency situations",
+    "HowItWorksDescription": {
+      "1": "A basic device is installed on the hive, which records the temperature in the hive itself, and also collects information about humidity. Data collection from hives is done every 30 minutes.",
+      "2": "Sensors on beehives are installed independently. The design of the sensors allows installation on any type of hive and in any position - from the bottom, side or top.",
+      "3": "The device can work from any battery, power bank or other device that provides power for operation. The storage period of all data in the system is not limited."
+    }
+  },
+  "ShopPage": {
+    "Cards": {
+      "1": {
+        "Name": "Basic device - Novabee",
+        "Descr": "Instant receipt of important information about the hive"
+      }
+    },
+    "OrderBtn": "Add to cart"
+  },
+  "MyOrdersPage": {
+    "Order": "Order",
+    "StatusChangeDate": "Status change date:",
+    "Status": "Pending",
+    "Address": "Address:",
+    "OrderDate": "Order date",
+    "TotalPrice": "Total price:"
+  },
+  "CartPage": {
+    "Items": "items",
+    "Summary": "Summary",
+    "Total": "Total:",
+    "Delivery": "Delivery",
+    "City": "City",
+    "Address": "Address",
+    "TotalPrice": "Total price",
+    "Checkout": "Checkout"
+  }
+}

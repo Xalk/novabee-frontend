@@ -9,12 +9,15 @@ import NotificationsActiveOutlinedIcon from '@mui/icons-material/NotificationsAc
 import {Splide, SplideSlide} from "@splidejs/react-splide";
 import '@splidejs/splide/dist/css/splide.min.css';
 import {useNavigate} from "react-router-dom";
+import {useTranslation} from "react-i18next";
+
 interface HomeProps {
 
 }
 
 
 const Home: React.FC<HomeProps> = () => {
+    const { t } = useTranslation();
 
     const navigate = useNavigate();
     const onClickCartHandler = () => {
@@ -27,18 +30,15 @@ const Home: React.FC<HomeProps> = () => {
                 <div className={s.left}>
                     <div className={s.quickInfo}>
                         <h1>
-                            Nova<span>bee</span> - розумна пасіка <br/>у вашому смартфоні!
+                            Nova<span>bee</span> - {t('HomePage.Tagline')}
                         </h1>
                         <p>
-                            Контролюйте стан кожного вулика, <br/>ведіть облік всіх дій, отримуйте <br/>миттєві
-                            повідомлення
-                            в
-                            разі екстрених ситуацій
+                            {t('HomePage.MainDescription')}
                         </p>
 
                         <div className={s.buttons}>
                             <button onClick={onClickCartHandler}>
-                                Замовити
+                                {t('Order')}
                             </button>
                             <div className={s.download}>
                                 <img src={googlePlayDownload} alt="google play"/>
@@ -53,7 +53,7 @@ const Home: React.FC<HomeProps> = () => {
                             type: 'loop',
                             perPage: 2,
                             drag: false,
-                            autoplay : true,
+                            autoplay: true,
                             interval: 2000,
                             wheel: true,
                             width: '500px',
@@ -86,48 +86,47 @@ const Home: React.FC<HomeProps> = () => {
             <div className={s.benefits}>
                 <div className={s.inner}>
 
-                    <h2>Що отримує бджоляр</h2>
+                    <h2>{t('HomePage.Benefits')}</h2>
                     <div className={s.grid}>
                         <div className={s.card}>
                             <NotificationsActiveOutlinedIcon fontSize="large"/>
-                            <p>Миттєве сповіщення в разі будь-яких позаштатних ситуацій</p>
+                            <p>{t('HomePage.Card1')}</p>
                         </div>
                         <div className={s.card}>
                             <NotificationsActiveOutlinedIcon fontSize="large"/>
-                            <p>Миттєве сповіщення в разі будь-яких позаштатних ситуацій</p>
+                            <p>{t('HomePage.Card1')}</p>
                         </div>
                         <div className={s.card}>
                             <NotificationsActiveOutlinedIcon fontSize="large"/>
-                            <p>Миттєве сповіщення в разі будь-яких позаштатних ситуацій</p>
+                            <p>{t('HomePage.Card1')}</p>
                         </div>
                         <div className={s.card}>
                             <NotificationsActiveOutlinedIcon fontSize="large"/>
-                            <p>Миттєве сповіщення в разі будь-яких позаштатних ситуацій</p>
+                            <p>{t('HomePage.Card1')}</p>
                         </div>
                         <div className={s.card}>
                             <NotificationsActiveOutlinedIcon fontSize="large"/>
-                            <p>Миттєве сповіщення в разі будь-яких позаштатних ситуацій</p>
+                            <p>{t('HomePage.Card1')}</p>
                         </div>
                         <div className={s.card}>
                             <NotificationsActiveOutlinedIcon fontSize="large"/>
-                            <p>Миттєве сповіщення в разі будь-яких позаштатних ситуацій</p>
+                            <p>{t('HomePage.Card1')}</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div className={s.howItWorks}>
-                <h2>Як це працює</h2>
+                <h2>{t('HowItWorks')}</h2>
                 <div className={s.description}>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, commodi dignissimos est
-                        facilis ipsa libero maiores maxime mollitia officia possimus quod rerum sapiente tenetur unde
-                        veritatis. Odio similique sunt tenetur?</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, commodi dignissimos est
-                        facilis ipsa libero maiores maxime mollitia officia possimus quod rerum sapiente tenetur unde
-                        veritatis. Odio similique sunt tenetur?</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, commodi dignissimos est
-                        facilis ipsa libero maiores maxime mollitia officia possimus quod rerum sapiente tenetur unde
-                        veritatis. Odio similique sunt tenetur?</p>
-
+                    <p>
+                        {t('HomePage.HowItWorksDescription.1')}
+                    </p>
+                    <p>
+                        {t('HomePage.HowItWorksDescription.2')}
+                    </p>
+                    <p>
+                        {t('HomePage.HowItWorksDescription.3')}
+                    </p>
                 </div>
             </div>
         </div>

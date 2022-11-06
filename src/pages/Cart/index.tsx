@@ -3,6 +3,7 @@ import s from './Cart.module.scss'
 import device from '../../assets/device.jpg'
 import HighlightOffOutlinedIcon from '@mui/icons-material/HighlightOffOutlined';
 import {TextField} from "@mui/material";
+import {useTranslation} from "react-i18next";
 
 interface CartProps {
 
@@ -10,6 +11,8 @@ interface CartProps {
 
 
 const Cart: React.FC<CartProps> = () => {
+    const { t } = useTranslation();
+
     return (
         <div className={s.container}>
             <div className={s.cart}>
@@ -17,8 +20,8 @@ const Cart: React.FC<CartProps> = () => {
                 <div className={s.main}>
                     <div className={s.items}>
                         <div className={s.top}>
-                            <h2>Корзина</h2>
-                            <p>3 предмети</p>
+                            <h2>{t('Cart')}</h2>
+                            <p>3 {t('CartPage.Items')}</p>
                         </div>
                         <div className={s.card}>
                             <div className={s.product}>
@@ -49,18 +52,18 @@ const Cart: React.FC<CartProps> = () => {
                         </div>
                     </div>
                     <div className={s.summary}>
-                        <h3>Підсумок</h3>
-                        <p><span>Всього:</span> 3 предмети</p>
+                        <h3>{t('CartPage.Summary')}</h3>
+                        <p><span>{t('CartPage.Total')}</span> 3 {t('CartPage.Items')}</p>
                         <div className={s.fields}>
-                            <p>Доставка</p>
-                            <TextField id="outlined-basic" label="Введіть місто" variant="outlined"/>
-                            <TextField id="outlined-basic" label="Введіть вулицю" variant="outlined"/>
+                            <p>{t('CartPage.Delivery')}</p>
+                            <TextField id="outlined-basic" label={t('CartPage.City')} variant="outlined"/>
+                            <TextField id="outlined-basic" label={t('CartPage.Address')} variant="outlined"/>
                         </div>
                         <div className={s.total}>
-                            <p>ЗАГАЛЬНА СУМА</p>
+                            <p>{t('CartPage.TotalPrice')}</p>
                             <p>₴ 1500</p>
                         </div>
-                        <button>Оформити</button>
+                        <button>{t('CartPage.Checkout')}</button>
                     </div>
                 </div>
             </div>

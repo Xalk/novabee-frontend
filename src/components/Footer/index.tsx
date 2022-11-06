@@ -19,10 +19,8 @@ const Footer: React.FC<FooterProps> = () => {
         <footer>
             <div className={s.inner}>
                 <div className={s.info}>
-                    <h3>Nova<span>bee</span> - розумна пасіка <br/>
-                        у вашому смартфоні!</h3>
-                    <p>Контролюйте стан кожного вулика, <br/> ведіть облік всіх дій, отримуйте миттєві <br/> повідомлення в разі
-                        екстрених ситуацій</p>
+                    <h3>Nova<span>bee</span> - {t('HomePage.Tagline')}</h3>
+                    <p>{t('HomePage.MainDescription')}</p>
                 </div>
                 <div className={s.contacts}>
                     <h3>{t('Footer.Social')}</h3>

@@ -22,37 +22,37 @@ const Shop: React.FC<ShopProps> = () => {
                         <p className={s.price}>₴ 1500</p>
                         <p>{t('ShopPage.Cards.1.Descr')}</p>
                         <img src={device} alt="device" width={200}/>
-                        <button>{t('ShopPage.Cards.1.OrderBtn')}</button>
+                        <button>{t('ShopPage.OrderBtn')}</button>
                     </div><div className={s.card}>
                         <h3>{t('ShopPage.Cards.1.Name')}</h3>
                         <p className={s.price}>₴ 1500</p>
                         <p>{t('ShopPage.Cards.1.Descr')}</p>
                         <img src={device} alt="device" width={200}/>
-                        <button>{t('ShopPage.Cards.1.OrderBtn')}</button>
+                        <button>{t('ShopPage.OrderBtn')}</button>
                     </div><div className={s.card}>
                         <h3>{t('ShopPage.Cards.1.Name')}</h3>
                         <p className={s.price}>₴ 1500</p>
                         <p>{t('ShopPage.Cards.1.Descr')}</p>
                         <img src={device} alt="device" width={200}/>
-                        <button>{t('ShopPage.Cards.1.OrderBtn')}</button>
+                        <button>{t('ShopPage.OrderBtn')}</button>
                     </div><div className={s.card}>
                         <h3>{t('ShopPage.Cards.1.Name')}</h3>
                         <p className={s.price}>₴ 1500</p>
                         <p>{t('ShopPage.Cards.1.Descr')}</p>
                         <img src={device} alt="device" width={200}/>
-                        <button>{t('ShopPage.Cards.1.OrderBtn')}</button>
+                        <button>{t('ShopPage.OrderBtn')}</button>
                     </div><div className={s.card}>
                         <h3>{t('ShopPage.Cards.1.Name')}</h3>
                         <p className={s.price}>₴ 1500</p>
                         <p>{t('ShopPage.Cards.1.Descr')}</p>
                         <img src={device} alt="device" width={200}/>
-                        <button>{t('ShopPage.Cards.1.OrderBtn')}</button>
+                        <button>{t('ShopPage.OrderBtn')}</button>
                     </div><div className={s.card}>
                         <h3>{t('ShopPage.Cards.1.Name')}</h3>
                         <p className={s.price}>₴ 1500</p>
                         <p>{t('ShopPage.Cards.1.Descr')}</p>
                         <img src={device} alt="device" width={200}/>
-                        <button>{t('ShopPage.Cards.1.OrderBtn')}</button>
+                        <button>{t('ShopPage.OrderBtn')}</button>
                     </div>
 
                 </div>

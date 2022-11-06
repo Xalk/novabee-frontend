@@ -10,6 +10,8 @@ footer {
 
 
     .info {
+      flex: 1;
+
       h3 {
         font-weight: bold;
         font-size: 16px;
@@ -26,6 +28,9 @@ footer {
     }
 
     .contacts {
+      flex: 1;
+      text-align: center;
+
       h3 {
         font-weight: bold;
         font-size: 16px;
@@ -34,7 +39,8 @@ footer {
 
       .social {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-evenly;
+
         margin-top: 16px;
         padding: 0 30px;
       }
@@ -42,21 +48,23 @@ footer {
     }
 
     .app {
+      flex: 1;
       display: flex;
       //flex-direction: column;
       align-items: start;
       gap: 15px;
 
-      .downloads{
+      .downloads {
         display: flex;
         flex-direction: column;
         align-items: start;
         gap: 15px;
       }
 
-      .links{
+      .links {
         display: flex;
         flex-direction: column;
+
         a {
           margin-bottom: 15px;
           text-decoration: underline;

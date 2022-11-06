@@ -14,6 +14,7 @@ import Layout from "./components/Layout";
 function App() {
 
     const [user, setUser] = useState<IUser | null>()
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
         initUser()
@@ -22,8 +23,8 @@ function App() {
     const initUser = async () => {
         try {
             const user = await UserAPI.getMe()
-
             setUser(user)
+            setIsLoading(false)
         } catch (e) {
             console.log(e)
         }
@@ -31,7 +32,7 @@ function App() {
 
 
     return (
-        <AppContext.Provider value={{user, setUser}}>
+        <AppContext.Provider value={{user, setUser, isLoading, setIsLoading}}>
             <div className="wrapper">
 
                 <Routes>

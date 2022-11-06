@@ -1,5 +1,6 @@
 import {fetchUtils} from 'react-admin';
 import {stringify} from 'query-string';
+import {getWithExpiry} from "../../utils/localStorage";
 
 const apiUrl = 'http://localhost:5000/api';
 // const httpClient = fetchUtils.fetchJson;
@@ -8,8 +9,7 @@ const httpClient = (url: any, options: any = {}) => {
     if (!options.headers) {
         options.headers = new Headers({Accept: 'application/json'});
     }
-    // const token = localStorage.getItem('token');
-    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzRiZGJjODNhOGIzZmQxNjhjMGZlNWIiLCJpYXQiOjE2NjcyNDk0ODIsImV4cCI6MTY2OTg0MTQ4Mn0.4H0ESJ6pgLQirrEiUBPFkK55l1ac4ON-3Ov7iBLyqoo"
+    const token = getWithExpiry('access_key');
     options.headers.set('Authorization', `Bearer ${token}`);
     return fetchUtils.fetchJson(url, options);
 }

@@ -13,12 +13,15 @@ const MyAppBar = (props: any) => {
         <AppBar
             sx={{
                 "& .MuiToolbar-root": {
-                    justifyContent: "space-between"
+                    justifyContent: "space-between",
                 },
                 "& .RaAppBar-title": {
                     textOverflow: "ellipsis",
                     whiteSpace: "nowrap",
                     overflow: "hidden",
+                },
+                "& .css-tltakn-RaLayout-root .RaLayout-content": {
+                    marginTop: "50px !important"
                 },
             }}
             {...props}

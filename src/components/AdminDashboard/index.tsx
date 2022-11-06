@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Admin, Resource} from 'react-admin'
 import ProductList from "./Product/ProductList";
 import myRestProvider from "./myRestProvider";
@@ -9,6 +9,8 @@ import ProductCreate from "./Product/ProductCreate";
 import OrderList from "./Order/OrderList";
 import OrderEdit from "./Order/OrderEdit";
 import MyLayout from "./AdminLayout";
+import {useNavigate} from "react-router-dom";
+import {useAdmin, useAuth} from "../../utils/hooks";
 
 interface AdminDashboardProps {
 
@@ -16,6 +18,19 @@ interface AdminDashboardProps {
 
 
 const AdminDashboard: React.FC<AdminDashboardProps> = () => {
+
+    const navigate = useNavigate();
+    const isAuth = useAuth()
+    const isAdmin = useAdmin()
+
+    useEffect(() => {
+        if (!isAuth || !isAdmin) {
+            return navigate("/");
+        }
+    }, [isAuth, isAdmin]);
+
+
+
     return (
         <Admin dataProvider={myRestProvider} basename="/dashboard" layout={MyLayout}>
             <Resource name='product'

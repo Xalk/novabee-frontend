@@ -3,8 +3,6 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
@@ -13,6 +11,15 @@ import Container from '@mui/material/Container';
 import {createTheme, ThemeProvider} from '@mui/material/styles';
 import logo from "../../assets/logo.svg";
 import s from "../Header/Header.module.scss";
+import {useContext, useState} from "react";
+import AppContext from "../../context";
+import {SubmitHandler, useForm} from "react-hook-form";
+import {yupResolver} from "@hookform/resolvers/yup";
+import {registerSchema} from "../../utils/validation";
+import {UserAPI} from "../../api";
+import {setWithExpiry} from "../../utils/localStorage";
+import {AxiosError} from "axios";
+import {Alert} from "@mui/material";
 
 function Copyright(props: any) {
     return (
@@ -31,17 +38,48 @@ const theme = createTheme();
 
 interface SignUpFormProps {
     onOpenSignIn: () => void
+    handleClose: () => void
 }
 
-const SignUpForm: React.FC<SignUpFormProps> = ({onOpenSignIn}) => {
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        console.log({
-            email: data.get('email'),
-            password: data.get('password'),
-        });
+type SignUpFields = {
+    email: string,
+    password: string,
+    firstName: string,
+    lastName: string
+}
+
+const SignUpForm: React.FC<SignUpFormProps> = ({onOpenSignIn, handleClose}) => {
+
+    const {setUser} = useContext(AppContext);
+    const [responseError, setResponseError] = useState('')
+
+    const {register, handleSubmit, formState: {errors}} = useForm<SignUpFields>({
+        resolver: yupResolver(registerSchema),
+    });
+
+    const onSubmit: SubmitHandler<SignUpFields> = async formData => {
+
+        try {
+
+            const userData = {
+                email: formData.email,
+                password: formData.password,
+                fullName: `${formData.firstName} ${formData.lastName}`
+            }
+
+            const user = await UserAPI.register(userData)
+            setUser(user)
+            setWithExpiry('access_key', user.token, 2.592 * 10 ** 9)
+            handleClose()
+            setResponseError('')
+
+
+        } catch (err: any | AxiosError) {
+            console.log(err)
+            setResponseError(err.response.data.message)
+        }
     };
+
 
     return (
         <ThemeProvider theme={theme}>
@@ -61,17 +99,19 @@ const SignUpForm: React.FC<SignUpFormProps> = ({onOpenSignIn}) => {
                     <Typography component="h1" variant="h5">
                         Sign up
                     </Typography>
-                    <Box component="form" noValidate onSubmit={handleSubmit} sx={{mt: 3}}>
+                    <Box component="form" noValidate onSubmit={handleSubmit(onSubmit)} sx={{mt: 3}}>
                         <Grid container spacing={2}>
                             <Grid item xs={12} sm={6}>
                                 <TextField
                                     autoComplete="given-name"
-                                    name="firstName"
                                     required
                                     fullWidth
                                     id="firstName"
                                     label="First Name"
                                     autoFocus
+                                    {...register("firstName", {required: "This field is required"})}
+                                    error={Boolean(errors.firstName)}
+                                    helperText={errors.firstName ? errors.firstName.message : " "}
                                 />
                             </Grid>
                             <Grid item xs={12} sm={6}>
@@ -80,8 +120,10 @@ const SignUpForm: React.FC<SignUpFormProps> = ({onOpenSignIn}) => {
                                     fullWidth
                                     id="lastName"
                                     label="Last Name"
-                                    name="lastName"
                                     autoComplete="family-name"
+                                    {...register("lastName", {required: "This field is required"})}
+                                    error={Boolean(errors.firstName)}
+                                    helperText={errors.lastName ? errors.lastName.message : " "}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -90,28 +132,27 @@ const SignUpForm: React.FC<SignUpFormProps> = ({onOpenSignIn}) => {
                                     fullWidth
                                     id="email"
                                     label="Email Address"
-                                    name="email"
                                     autoComplete="email"
+                                    {...register("email", {required: "This field is required"})}
+                                    error={Boolean(errors.email)}
+                                    helperText={errors.email ? errors.email.message : " "}
                                 />
                             </Grid>
                             <Grid item xs={12}>
                                 <TextField
                                     required
                                     fullWidth
-                                    name="password"
                                     label="Password"
                                     type="password"
                                     id="password"
                                     autoComplete="new-password"
-                                />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <FormControlLabel
-                                    control={<Checkbox value="allowExtraEmails" color="primary"/>}
-                                    label="I want to receive inspiration, marketing promotions and updates via email."
+                                    {...register("password", {required: "This field is required"})}
+                                    error={Boolean(errors.email)}
+                                    helperText={errors.password ? errors.password.message : " "}
                                 />
                             </Grid>
                         </Grid>
+                        {responseError && <Alert severity="error">{responseError}</Alert>}
                         <Button
                             type="submit"
                             fullWidth

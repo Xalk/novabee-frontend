@@ -23,7 +23,7 @@ import {
     SelectInput
 } from 'react-admin';
 import {Chip, ImageListItem, Stack} from '@mui/material';
-import {IProduct} from "../../../types";
+import {IProduct} from "../types";
 
 
 const orderStatus = ["pending", "accepted", "processing", "sent", "received", "rejected"]

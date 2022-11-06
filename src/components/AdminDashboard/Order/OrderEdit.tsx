@@ -11,7 +11,7 @@ import {
     TextInput,
     SelectInput
 } from "react-admin";
-import {IProduct} from "../../../types";
+import {IProduct} from "../types";
 import {ImageListItem} from "@mui/material";
 
 const OrderEdit: React.FC = (props) => {

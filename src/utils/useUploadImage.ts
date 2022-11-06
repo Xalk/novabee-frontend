@@ -1,4 +1,4 @@
-import {IProduct} from "../types";
+import {IProduct} from "../components/AdminDashboard/types";
 import {API} from "../api";
 
 export const useProductUploadImage = () => {

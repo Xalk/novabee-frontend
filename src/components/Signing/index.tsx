@@ -38,12 +38,8 @@ const Signing: React.FC<SigningProps> = ({openSigning, setSigningOpen}) => {
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={style}>
-
-                    {/*<SignInForm/>*/}
-                    {/*<SignUpForm/>*/}
-
-                    {formType === "signIn" && <SignInForm onOpenSignUp={() => setFormType("signUp")} />}
-                    {formType === "signUp" && <SignUpForm onOpenSignIn={() => setFormType("signIn")} />}
+                    {formType === "signIn" && <SignInForm onOpenSignUp={() => setFormType("signUp")} handleClose={handleClose} />}
+                    {formType === "signUp" && <SignUpForm onOpenSignIn={() => setFormType("signIn")} handleClose={handleClose}/>}
                 </Box>
             </Modal>
         </div>

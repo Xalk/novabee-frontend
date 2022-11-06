@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import s from "./Header.module.scss";
 import IconButton from "@mui/material/IconButton";
 import avatarBeekeeper from "../../assets/avatarBeekeeper.svg";
@@ -13,15 +13,18 @@ import InventoryRoundedIcon from '@mui/icons-material/InventoryRounded';
 import {Typography} from "@mui/material";
 import {useNavigate} from "react-router-dom";
 import {useTranslation} from "react-i18next";
+import AppContext from "../../context";
 
 interface UserProps {
-    onClockModalOpen: ()=>void
+    onClockModalOpen: () => void
 }
 
 
 const User: React.FC<UserProps> = ({onClockModalOpen}) => {
 
-    const { t } = useTranslation();
+    const {user} = useContext(AppContext);
+
+    const {t} = useTranslation();
 
 
     const navigate = useNavigate();
@@ -46,20 +49,22 @@ const User: React.FC<UserProps> = ({onClockModalOpen}) => {
         <div className={s.user}>
 
             {
-                // <IconButton
-                //     onClick={handleClick}
-                //     size="small"
-                //     sx={{ml: 2}}
-                //     aria-controls={open ? 'account-menu' : undefined}
-                //     aria-haspopup="true"
-                //     aria-expanded={open ? 'true' : undefined}
-                // >
-                //     <img src={avatarBeekeeper} alt="avatarBeekeeper" width='55px'/>
-                // </IconButton>
 
-                <div className={s.signIn} onClick={onClockModalOpen}>
-                    {t('SignIn')}
-                </div>
+                user ?
+                    <IconButton
+                        onClick={handleClick}
+                        size="small"
+                        sx={{ml: 2}}
+                        aria-controls={open ? 'account-menu' : undefined}
+                        aria-haspopup="true"
+                        aria-expanded={open ? 'true' : undefined}
+                    >
+                        <img src={avatarBeekeeper} alt="avatarBeekeeper" width='55px'/>
+                    </IconButton>
+                    :
+                    <div className={s.signIn} onClick={onClockModalOpen}>
+                        {t('SignIn')}
+                    </div>
             }
 
 

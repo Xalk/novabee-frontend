@@ -1,10 +1,15 @@
 import axios from "axios";
-import {IUpload} from "./types";
+import {IUpload, reqUserData} from "./types";
+import {IUser} from "../context/types";
+import {getWithExpiry} from "../utils/localStorage";
+
+
+const token = getWithExpiry('access_key')
 
 let baseApi = axios.create({
     baseURL: 'http://localhost:5000/api/',
     headers: {
-        Authorization: "Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzRiZGJjODNhOGIzZmQxNjhjMGZlNWIiLCJpYXQiOjE2NjcyNDk0ODIsImV4cCI6MTY2OTg0MTQ4Mn0.4H0ESJ6pgLQirrEiUBPFkK55l1ac4ON-3Ov7iBLyqoo"
+        Authorization: "Bearer " + token
     }
 })
 
@@ -13,3 +18,17 @@ export const API = {
         return baseApi.post<IUpload>(`upload`, formData).then(res => res.data);
     },
 }
+
+export const UserAPI = {
+    login(userData: reqUserData) {
+        return baseApi.post<IUser>(`auth/login`, userData).then(res => res.data);
+    },
+    getMe() {
+        return baseApi.get<IUser>(`auth/me`).then(res => res.data);
+    },
+
+    register(userData: reqUserData) {
+        return baseApi.post<IUser>(`auth/register`, userData).then(res => res.data);
+    },
+}
+

@@ -6,7 +6,7 @@ import Cart from "./pages/Cart";
 import Order from "./pages/Order";
 import {Routes, Route} from "react-router-dom";
 import AppContext from "./context";
-import {IUser} from "./context/types";
+import {IProduct, IUser} from "./context/types";
 import {API, UserAPI} from "./api";
 import AdminDashboard from "./components/AdminDashboard";
 import Layout from "./components/Layout";
@@ -16,11 +16,13 @@ function App() {
     const [isLoading, setIsLoading] = useState(true)
     const [user, setUser] = useState<IUser | null>()
     const [products, setProducts] = useState<IResProduct | null>(null)
+    const [cart, setCart] = useState<IProduct[] | null>(null)
 
 
     useEffect(() => {
         initUser()
         fetchProducts()
+        fetchCart()
         setIsLoading(false)
     }, [])
 
@@ -42,8 +44,25 @@ function App() {
         }
     }
 
+    const fetchCart = async () => {
+        try {
+            const resCart = await API.getCart()
+            setCart(resCart)
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
     return (
-        <AppContext.Provider value={{user, setUser, isLoading, setIsLoading, products}}>
+        <AppContext.Provider value={{
+            user,
+            setUser,
+            isLoading,
+            setIsLoading,
+            products,
+            cart,
+            setCart
+        }}>
             <div className="wrapper">
 
                 <Routes>

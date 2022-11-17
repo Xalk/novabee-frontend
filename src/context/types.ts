@@ -6,6 +6,8 @@ export interface AppContextInterface {
     isLoading?: boolean
     setIsLoading?: (b: boolean) => void
     products: IResProduct | null
+    cart: IProduct[] | null
+    setCart: (data: IProduct[] | null) => void
 }
 
 export interface IUser {

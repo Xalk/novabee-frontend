@@ -1,6 +1,6 @@
 import axios from "axios";
 import {IResProduct, IUpload, reqUserData} from "./types";
-import {IUser} from "../context/types";
+import {IProduct, IUser} from "../context/types";
 import {getWithExpiry} from "../utils/localStorage";
 
 
@@ -19,6 +19,15 @@ export const API = {
     },
     getProducts(){
         return baseApi.get<IResProduct>(`product`).then(res => res.data);
+    },
+    addToCart(productId: string){
+        return baseApi.post(`cart`, {productId}).then(res => res.data);
+    },
+    getCart(){
+        return baseApi.get<IProduct[]>(`cart`).then(res => res.data);
+    },
+    removeFromCart(productId: string){
+        return baseApi.delete(`cart/${productId}`).then(res => res.data);
     }
 }
 

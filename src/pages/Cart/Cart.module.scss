@@ -1,5 +1,33 @@
 .container {
 
+  .empty{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 55vh;
+
+    img{
+      min-width: 200px;
+    }
+    h2{
+      color: #000;
+      font-size: 22px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 27px;
+    }
+    p{
+      color: #000;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 24px;
+      opacity: .4;
+      text-align: center;
+    }
+  }
+
   .cart {
     max-width: 1176px;
     padding: 50px;
@@ -35,11 +63,18 @@
           margin-bottom: 20px;
           box-shadow: 0 1px 3px 0 rgb(0 0 0 / 20%);
           padding: 20px;
-
+          svg{
+            cursor: pointer;
+          }
+          
           .product {
             display: flex;
             align-items: center;
             gap: 10px;
+
+            .name{
+              max-width: 150px;
+            }
 
             img {
               width: 100px;
@@ -51,6 +86,7 @@
 
 
       .summary {
+        height: 520px;
         width: 40%;
         padding: 0 20px;
         background-color: #fff9c4;

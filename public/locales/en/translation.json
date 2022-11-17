@@ -33,7 +33,23 @@
     "Cards": {
       "1": {
         "Name": "Basic device - Novabee",
-        "Descr": "Instant receipt of important information about the hive"
+        "Descr": "This is main device for certain beehive that helps you track temperature and humidity values"
+      },
+      "3": {
+        "Name": "24 Honeycomb Bottles",
+        "Descr": "Let The Natural Beauty Of Your Honey Shine Through These Crystal Clear Squeeze Bottles. The Embossed Honeycomb On Our Hourglass Design Enhances Your Honey Sales! Precision Machined Openings Ensure The Safety Seals In Our Caps Have Adequate Adhesion."
+      },
+      "4": {
+        "Name": "Zippered replacement veils",
+        "Descr": "These zippered replacement veils fit on our adult size heavy-duty jackets and bee suits."
+      },
+      "2": {
+        "Name": "Goat Skin Vented Leather Gloves",
+        "Descr": "If you are concerned about your hands or arms getting stung while working with your bees or if you already have gotten stung and know how much it smarts, we encourage you to try these gloves…from our experience they work very well."
+      },
+      "5": {
+        "Name": "Scraper-Blade Stainless Steel",
+        "Descr": "Solid, crystallized honey is very difficult to pack from large containers into smaller ones. A special spatula for honey will help to avoid such problems."
       }
     },
     "OrderBtn": "Add to cart"

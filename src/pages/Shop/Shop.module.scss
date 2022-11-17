@@ -28,10 +28,15 @@
         box-shadow: 0 1px 3px 0 rgb(0 0 0 / 20%);
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
         align-items: center;
         gap: 15px;
         font-size: 16px;
         transition: 0.15s ease-in-out;
+        img{
+          background-size: cover;
+        }
+
         .price {
           font-size: 28px;
           color: #fab040;
@@ -39,7 +44,8 @@
         }
 
         p{
-          text-align: center;
+          line-height: 20px;
+          text-align: justify;
           color: #c77c0d;
           font-size: 14px;
           font-weight: 400;

@@ -53,7 +53,7 @@ const OrderList: React.FC = (props) => {
         <ListBase {...props}>
             <ListToolbar/>
             <Datagrid>
-                <TextField source='id'/>
+                {/*<TextField source='id'/>*/}
                 <ArrayField source="products">
                     <Datagrid bulkActionButtons={false}>
                         <TextField source='title'/>

@@ -1,11 +1,10 @@
 import {IProduct} from "../components/AdminDashboard/types";
 import {API} from "../api";
 
-export const useProductUploadImage = () => {
+export const useProductUploadImage =  async (data: IProduct) => {
+    try {
 
-    return async (data :IProduct) => {
-        try {
-            console.log(data)
+        if(data.imageFile){
             const formData = new FormData()
             const file = data.imageFile.rawFile
             formData.append('image', file)
@@ -16,9 +15,13 @@ export const useProductUploadImage = () => {
                 ...reqData,
                 imageUrl: `${res.url}`,
             }
-
-        } catch (e) {
-            console.log(e)
+        }else {
+            return data
         }
+
+
+    } catch (e) {
+        console.log(e)
     }
+
 }

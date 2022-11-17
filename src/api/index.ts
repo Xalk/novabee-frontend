@@ -1,5 +1,5 @@
 import axios from "axios";
-import {IUpload, reqUserData} from "./types";
+import {IResProduct, IUpload, reqUserData} from "./types";
 import {IUser} from "../context/types";
 import {getWithExpiry} from "../utils/localStorage";
 
@@ -17,6 +17,9 @@ export const API = {
     upload(formData: FormData) {
         return baseApi.post<IUpload>(`upload`, formData).then(res => res.data);
     },
+    getProducts(){
+        return baseApi.get<IResProduct>(`product`).then(res => res.data);
+    }
 }
 
 export const UserAPI = {

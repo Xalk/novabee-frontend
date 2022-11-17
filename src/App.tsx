@@ -7,32 +7,43 @@ import Order from "./pages/Order";
 import {Routes, Route} from "react-router-dom";
 import AppContext from "./context";
 import {IUser} from "./context/types";
-import {UserAPI} from "./api";
+import {API, UserAPI} from "./api";
 import AdminDashboard from "./components/AdminDashboard";
 import Layout from "./components/Layout";
+import {IResProduct} from "./api/types";
 
 function App() {
-
-    const [user, setUser] = useState<IUser | null>()
     const [isLoading, setIsLoading] = useState(true)
+    const [user, setUser] = useState<IUser | null>()
+    const [products, setProducts] = useState<IResProduct | null>(null)
+
 
     useEffect(() => {
         initUser()
+        fetchProducts()
+        setIsLoading(false)
     }, [])
 
     const initUser = async () => {
         try {
             const user = await UserAPI.getMe()
             setUser(user)
-            setIsLoading(false)
         } catch (e) {
             console.log(e)
         }
     }
 
+    const fetchProducts = async () => {
+        try {
+            const resProducts = await API.getProducts()
+            setProducts(resProducts)
+        } catch (e) {
+            console.log(e)
+        }
+    }
 
     return (
-        <AppContext.Provider value={{user, setUser, isLoading, setIsLoading}}>
+        <AppContext.Provider value={{user, setUser, isLoading, setIsLoading, products}}>
             <div className="wrapper">
 
                 <Routes>

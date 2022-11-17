@@ -1,3 +1,5 @@
+import {IProduct} from "../context/types";
+
 export interface IUpload {
     url: string
 }
@@ -9,3 +11,6 @@ export interface reqUserData {
     rememberMe?: boolean
 }
 
+export interface IResProduct {
+    data: IProduct[]
+}

@@ -13,11 +13,8 @@ import {useProductUploadImage} from "../../../utils/useUploadImage";
 
 const ProductCreate: React.FC = () => {
 
-    const transform = useProductUploadImage()
-
-
     return (
-        <Create transform={transform}>
+        <Create transform={useProductUploadImage}>
             <SimpleForm>
                 <TextInput source="title"/>
                 <NumberInput source='price'/>

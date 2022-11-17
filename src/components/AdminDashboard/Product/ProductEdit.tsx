@@ -13,13 +13,12 @@ interface ProductEditProps {
 
 const ProductEdit: React.FC<ProductEditProps> = (props) => {
 
-    const transform = useProductUploadImage()
-
     return (
         <div>
-            <Edit {...props} transform={transform}>
+            <Edit {...props} transform={useProductUploadImage}>
                 <SimpleForm>
                     <TextInput disabled source="id"/>
+                    <TextInput source="title"/>
                     <NumberInput source='price'/>
                     <TextInput source='description'/>
                     <FunctionField

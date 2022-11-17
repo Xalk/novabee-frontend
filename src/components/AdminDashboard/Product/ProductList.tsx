@@ -35,13 +35,11 @@ const ListToolbar = () => (
 
 
 const ProductList: React.FC = (props) => {
-
-    console.log(props)
     return (
         <ListBase {...props}>
             <ListToolbar/>
             <Datagrid>
-                <TextField source='id'/>
+                {/*<TextField source='id'/>*/}
                 <TextField source='title'/>
                 <NumberField source='price'
                              locales="fr-FR"

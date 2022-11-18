@@ -41,7 +41,7 @@ const Order: React.FC<OrderProps> = () => {
                 <h2>{t('MyOrders')}</h2>
                 <div className={s.items}>
                     {
-                        orders?.reverse().map(o => <div className={s.card}>
+                        orders?.slice().reverse().map(o => <div className={s.card}>
                             <div className={s.info}>
                                 <p className={s.number}><span>{t('MyOrdersPage.Order')}</span> #{o._id.slice(-7)}</p>
                                 <p className={s.date}><span>{t('MyOrdersPage.StatusChangeDate')} </span>

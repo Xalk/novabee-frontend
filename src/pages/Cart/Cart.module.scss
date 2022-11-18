@@ -1,23 +1,25 @@
 .container {
 
-  .empty{
+  .empty {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 55vh;
 
-    img{
+    img {
       min-width: 200px;
     }
-    h2{
+
+    h2 {
       color: #000;
       font-size: 22px;
       font-style: normal;
       font-weight: 600;
       line-height: 27px;
     }
-    p{
+
+    p {
       color: #000;
       font-size: 16px;
       font-style: normal;
@@ -63,16 +65,17 @@
           margin-bottom: 20px;
           box-shadow: 0 1px 3px 0 rgb(0 0 0 / 20%);
           padding: 20px;
-          svg{
+
+          svg {
             cursor: pointer;
           }
-          
+
           .product {
             display: flex;
             align-items: center;
             gap: 10px;
 
-            .name{
+            .name {
               max-width: 150px;
             }
 
@@ -90,9 +93,13 @@
         width: 40%;
         padding: 0 20px;
         background-color: #fff9c4;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+
+        form {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          height: 100%;
+        }
 
         h3 {
           margin-top: 20px;
@@ -101,7 +108,7 @@
         }
 
         p {
-          
+
           span {
             font-weight: bold;
           }
@@ -132,6 +139,10 @@
 
           font-weight: bold;
           font-size: 16px;
+
+          &.disabled {
+            pointer-events: none;
+          }
         }
 
       }

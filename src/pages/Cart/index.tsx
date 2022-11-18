@@ -1,11 +1,11 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useContext, useEffect} from 'react';
 import s from './Cart.module.scss'
 import emptyBox from '../../assets/emptyBox.png'
-import {TextField} from "@mui/material";
 import {useTranslation} from "react-i18next";
 import AppContext from "../../context";
 import CartItem from "./CartItem";
 import {API} from "../../api";
+import SummaryForm from "./SummaryForm";
 
 interface CartProps {
 
@@ -30,6 +30,8 @@ const Cart: React.FC<CartProps> = () => {
         }
     }
 
+    const totalPrice = cart?.reduce((a, b) => a + b.price, 0)
+
     return (
         <div className={s.container}>
             {
@@ -52,18 +54,7 @@ const Cart: React.FC<CartProps> = () => {
                                 }
                             </div>
                             <div className={s.summary}>
-                                <h3>{t('CartPage.Summary')}</h3>
-                                <p><span>{t('CartPage.Total')}</span> {cart?.length}</p>
-                                <div className={s.fields}>
-                                    <p>{t('CartPage.Delivery')}</p>
-                                    <TextField id="outlined-basic" label={t('CartPage.City')} variant="outlined"/>
-                                    <TextField id="outlined-basic" label={t('CartPage.Address')} variant="outlined"/>
-                                </div>
-                                <div className={s.total}>
-                                    <p>{t('CartPage.TotalPrice')}</p>
-                                    <p>₴ 1500</p>
-                                </div>
-                                <button>{t('CartPage.Checkout')}</button>
+                                <SummaryForm cartLength={cart?.length} totalPrice={totalPrice}/>
                             </div>
                         </div>
                     </div>

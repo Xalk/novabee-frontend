@@ -1,5 +1,5 @@
 import axios from "axios";
-import {IResProduct, IUpload, reqUserData} from "./types";
+import {IResProduct, IResUserOrder, IUpload, reqUserData} from "./types";
 import {IProduct, IUser} from "../context/types";
 import {getWithExpiry} from "../utils/localStorage";
 
@@ -28,6 +28,12 @@ export const API = {
     },
     removeFromCart(productId: string){
         return baseApi.delete(`cart/${productId}`).then(res => res.data);
+    },
+    postOrder(address: {city: string, street:string}){
+        return baseApi.post(`order`, {address}).then(res => res.data);
+    },
+    getUserOrder(){
+        return baseApi.get<IResUserOrder[]>(`user-orders`).then(res => res.data);
     }
 }
 

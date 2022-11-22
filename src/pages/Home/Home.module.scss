@@ -65,7 +65,7 @@
 
           padding: 50px;
 
-          img{
+          img {
             border-radius: 20px;
             box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
           }
@@ -142,3 +142,33 @@
   }
 }
 
+@media (max-width: 992px) {
+  .container {
+
+    .start {
+      flex-direction: column;
+    }
+
+    .benefits {
+      .inner {
+        .grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+    }
+
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    .benefits {
+      .inner {
+        .grid {
+          grid-template-columns: repeat(1, 1fr);
+        }
+      }
+    }
+
+  }
+}

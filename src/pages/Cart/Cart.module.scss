@@ -6,6 +6,7 @@
     justify-content: center;
     align-items: center;
     height: 55vh;
+    padding: 20px;
 
     img {
       min-width: 200px;
@@ -147,5 +148,43 @@
 
       }
     }
+  }
+}
+
+@media (max-width: 767px) {
+  .container{
+    .cart{
+      padding: 20px;
+      .main{
+        flex-direction: column;
+        .items{
+          width: initial;
+          padding-right: 0;
+          .card{
+            position: relative;
+            flex-direction: column;
+            gap: 10px;
+            svg{
+              position: absolute;
+              top: 10px;
+              right: 10px;
+              font-size: 20px;
+            }
+            .product{
+              flex-direction: column;
+              img {
+                width: 200px;
+                border-radius: 5px;
+              }
+            }
+          }
+        }
+
+        .summary{
+          width: initial;
+        }
+      }
+    }
+
   }
 }

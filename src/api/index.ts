@@ -7,7 +7,7 @@ import {getWithExpiry} from "../utils/localStorage";
 const token = getWithExpiry('access_key')
 
 let baseApi = axios.create({
-    baseURL: 'http://localhost:5000/api/',
+    baseURL: 'http://192.168.0.103:5000/api/',
     headers: {
         Authorization: "Bearer " + token
     }

@@ -76,3 +76,22 @@ footer {
 
   }
 }
+
+@media (max-width: 767px) {
+  footer{
+    .inner{
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 25px;
+
+      .app{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+      }
+    }
+
+  }
+}

@@ -13,6 +13,7 @@
     .items {
 
       margin-top: 50px;
+
       .card {
         display: flex;
         flex-direction: column;
@@ -21,6 +22,7 @@
         border-radius: 10px;
         font-size: 16px;
         margin-bottom: 80px;
+
         span {
           font-weight: bold;
         }
@@ -72,6 +74,48 @@
           padding: 0 20px;
           display: flex;
           justify-content: space-between;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+
+    .orders {
+      padding: 20px;
+
+      .items {
+        .card {
+          .info {
+            flex-direction: column;
+            align-items: flex-start;
+
+            .status {
+              margin: 0 auto;
+            }
+          }
+
+          .summary {
+            flex-direction: column;
+            gap: 20px;
+          }
+
+          .products {
+            .card {
+              flex-direction: column;
+
+              .product {
+                flex-direction: column;
+
+
+              }
+              .quantity {
+                margin-bottom: 20px;
+              }
+            }
+          }
         }
       }
     }

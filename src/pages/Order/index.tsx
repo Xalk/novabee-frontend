@@ -53,7 +53,7 @@ const Order: React.FC<OrderProps> = () => {
                                 {
                                     o.products.map(p => <div className={s.card}>
                                         <div className={s.product}>
-                                            <img src={'http://localhost:5000'+p.imageUrl} alt="product"/>
+                                            <img src={'http://192.168.0.103:5000'+p.imageUrl} alt="product"/>
                                             <p className={s.name}>{p.title}</p>
                                         </div>
                                         <div className={s.quantity}>1 шт</div>

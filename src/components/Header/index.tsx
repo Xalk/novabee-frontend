@@ -1,33 +1,29 @@
 import * as React from 'react';
+import {useState} from "react";
 import s from './Header.module.scss'
 import logoWithName from '../../assets/logoWithName.svg';
+import logo from '../../assets/logo.svg';
 import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import {Link} from "react-router-dom";
+import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 
-
-import {useTranslation} from 'react-i18next';
-import i18next from 'i18next';
 
 import User from "./User";
 import Signing from "../Signing";
+import IconButton from "@mui/material/IconButton";
+import useWindowDimensions from "../../utils/hooks";
+import Navbar from "../../pages/Home/Navbar";
 
 
 function Header() {
 
-    const {t} = useTranslation();
 
-    function handleClick(lang: string) {
-        i18next.changeLanguage(lang)
-    }
+    const [openSigning, setSigningOpen] = useState(false);
+    const [isMenuVisible, setIsMenuVisible] = useState(false)
 
 
-    const onChangeLang = (lang: string) => {
-        handleClick(lang)
-    }
-
-    const [openSigning, setSigningOpen] = React.useState(false);
-
+    const {width} = useWindowDimensions()
 
     return (
         <header>
@@ -51,37 +47,23 @@ function Header() {
                 <div className={s.inner}>
 
                     <Link to="/">
-                        <img src={logoWithName} alt="logoWithName" className={s.logo}/>
+                        <img src={width < 767 ? logo : logoWithName} alt="logoWithName" className={s.logo}/>
                     </Link>
-                    <div className={s.navbar}>
-                        <ul>
-                            <li>{t('NovabeeSystem')}</li>
-                            <li>{t('Benefits')}</li>
-                            <li>{t('HowItWorks')}</li>
-                            <li>{t('Equipment')}</li>
-
-                            <Link to="/shop">
-                                <li>{t('Order')}</li>
-                            </Link>
-                            <li>FAQ</li>
-
-                            <select onChange={(e) => onChangeLang(e.target.value)}>
-                                <option value='uk'>
-                                    UA
-                                </option>
-                                <option value='en'>
-                                    EN
-                                </option>
-                            </select>
-
-                        </ul>
-                    </div>
-                    <User onClockModalOpen={()=> setSigningOpen(true)}/>
-                    <Signing openSigning={openSigning} setSigningOpen={(b)=>setSigningOpen(b)}/>
+                    {
+                        width < 767 ? (
+                            <IconButton onClick={() => setIsMenuVisible(prev => !prev)} sx={{marginLeft: '20px'}}>
+                                <MenuRoundedIcon fontSize={'large'}/>
+                            </IconButton>
+                        ) : (<Navbar isMenuVisible={isMenuVisible}/>)
+                    }
+                    <User
+                        onClockModalOpen={() => setSigningOpen(true)}/>
 
                 </div>
-            </div>
 
+            </div>
+            {width < 767 && <Navbar isMenuVisible={isMenuVisible}/>}
+            <Signing openSigning={openSigning} setSigningOpen={(b) => setSigningOpen(b)}/>
         </header>
     );
 }

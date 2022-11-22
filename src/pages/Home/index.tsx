@@ -10,6 +10,7 @@ import {Splide, SplideSlide} from "@splidejs/react-splide";
 import '@splidejs/splide/dist/css/splide.min.css';
 import {useNavigate} from "react-router-dom";
 import {useTranslation} from "react-i18next";
+import useWindowDimensions from "../../utils/hooks";
 
 interface HomeProps {
 
@@ -23,6 +24,8 @@ const Home: React.FC<HomeProps> = () => {
     const onClickCartHandler = () => {
         navigate("/shop");
     }
+
+    const {width} = useWindowDimensions()
 
     return (
         <div className={s.container}>
@@ -51,7 +54,7 @@ const Home: React.FC<HomeProps> = () => {
                     <div className={s.slider}>
                         <Splide options={{
                             type: 'loop',
-                            perPage: 2,
+                            perPage: width < 500 ? 1 : 2,
                             drag: false,
                             autoplay: true,
                             interval: 2000,

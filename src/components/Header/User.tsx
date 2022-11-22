@@ -95,7 +95,7 @@ const User: React.FC<UserProps> = ({onClockModalOpen}) => {
                             display: 'block',
                             position: 'absolute',
                             top: 0,
-                            right: 14,
+                            right: 29,
                             width: 10,
                             height: 10,
                             bgcolor: 'background.paper',

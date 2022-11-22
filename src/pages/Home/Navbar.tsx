@@ -3,6 +3,7 @@ import s from "../../components/Header/Header.module.scss";
 import {Link} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 import i18next from "i18next";
+import { HashLink } from 'react-router-hash-link';
 
 interface NavbarProps {
     isMenuVisible:boolean
@@ -26,14 +27,14 @@ const Navbar : React.FC<NavbarProps> = ({isMenuVisible}) => {
      <div className={`${s.navbar} ${isMenuVisible ? s.visible : ""}`}>
          <ul>
              <li>{t('NovabeeSystem')}</li>
-             <li>{t('Benefits')}</li>
-             <li>{t('HowItWorks')}</li>
+             <HashLink to="/#benefits"><li>{t('Benefits')}</li></HashLink>
+             <HashLink to="/#howItWorks"><li>{t('HowItWorks')}</li></HashLink>
              <li>{t('Equipment')}</li>
 
              <Link to="/shop">
                  <li>{t('Order')}</li>
              </Link>
-             <li>FAQ</li>
+             <Link to="/faq"><li>FAQ</li></Link>
 
              <select onChange={(e) => onChangeLang(e.target.value)}>
                  <option value='uk'>

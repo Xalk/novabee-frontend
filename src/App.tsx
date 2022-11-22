@@ -4,6 +4,8 @@ import Home from "./pages/Home";
 import Shop from "./pages/Shop";
 import Cart from "./pages/Cart";
 import Order from "./pages/Order";
+import Faq from "./pages/Faq";
+
 import {Routes, Route} from "react-router-dom";
 import AppContext from "./context";
 import {IProduct, IUser} from "./context/types";
@@ -71,6 +73,7 @@ function App() {
                         <Route path="shop" element={<Shop/>}/>
                         <Route path="cart" element={<Cart/>}/>
                         <Route path="order" element={<Order/>}/>
+                        <Route path="faq" element={<Faq/>}/>
                     </Route>
                     <Route path="/dashboard/*" element={<AdminDashboard/>}/>
                 </Routes>

@@ -27,6 +27,7 @@ const Home: React.FC<HomeProps> = () => {
 
     const {width} = useWindowDimensions()
 
+
     return (
         <div className={s.container}>
             <div className={s.start}>
@@ -86,7 +87,7 @@ const Home: React.FC<HomeProps> = () => {
                     </div>
                 </div>
             </div>
-            <div className={s.benefits}>
+            <div className={s.benefits} id="benefits">
                 <div className={s.inner}>
 
                     <h2>{t('HomePage.Benefits')}</h2>
@@ -118,7 +119,7 @@ const Home: React.FC<HomeProps> = () => {
                     </div>
                 </div>
             </div>
-            <div className={s.howItWorks}>
+            <div className={s.howItWorks} id="howItWorks">
                 <h2>{t('HowItWorks')}</h2>
                 <div className={s.description}>
                     <p>

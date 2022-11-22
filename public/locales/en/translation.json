@@ -22,7 +22,14 @@
     "Tagline": "a smart apiary in your smartphone!",
     "MainDescription": "Monitor the state of each hive, keep track of all actions, receive instant notifications in case of emergency situations",
     "Benefits": "What the beekeeper gets",
-    "Card1": "Instant notification in case of any emergency situations",
+    "Cards": {
+      "1": "Instant notification in case of any emergency situations",
+      "2": "Planning and recording of technological operations",
+      "3": "Reduction of all possible risks",
+      "4": "Status of each hive - temperature and humidity",
+      "5": "Easy own installation on any type of hive",
+      "6": "Receiving real time data using Internet"
+    },
     "HowItWorksDescription": {
       "1": "A basic device is installed on the hive, which records the temperature in the hive itself, and also collects information about humidity. Data collection from hives is done every 30 minutes.",
       "2": "Sensors on beehives are installed independently. The design of the sensors allows installation on any type of hive and in any position - from the bottom, side or top.",

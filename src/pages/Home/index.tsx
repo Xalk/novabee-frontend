@@ -5,12 +5,18 @@ import appleDownload from '../../assets/Apple-download.svg'
 import sliderImageTemp1 from '../../assets/sliderImageTemp1.jpg'
 import sliderImageTemp2 from '../../assets/sliderImageTemp2.jpg'
 import sliderImageTemp3 from '../../assets/sliderImageTemp3.jpg'
-import NotificationsActiveOutlinedIcon from '@mui/icons-material/NotificationsActiveOutlined';
 import {Splide, SplideSlide} from "@splidejs/react-splide";
 import '@splidejs/splide/dist/css/splide.min.css';
 import {useNavigate} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 import useWindowDimensions from "../../utils/hooks";
+
+import NotificationsActiveOutlinedIcon from '@mui/icons-material/NotificationsActiveOutlined';
+import TaskOutlinedIcon from '@mui/icons-material/TaskOutlined';
+import TrendingDownOutlinedIcon from '@mui/icons-material/TrendingDownOutlined';
+import GppGoodOutlinedIcon from '@mui/icons-material/GppGoodOutlined';
+import HandymanOutlinedIcon from '@mui/icons-material/HandymanOutlined';
+import CloudDownloadOutlinedIcon from '@mui/icons-material/CloudDownloadOutlined';
 
 interface HomeProps {
 
@@ -94,27 +100,27 @@ const Home: React.FC<HomeProps> = () => {
                     <div className={s.grid}>
                         <div className={s.card}>
                             <NotificationsActiveOutlinedIcon fontSize="large"/>
-                            <p>{t('HomePage.Card1')}</p>
+                            <p>{t('HomePage.Cards.1')}</p>
                         </div>
                         <div className={s.card}>
-                            <NotificationsActiveOutlinedIcon fontSize="large"/>
-                            <p>{t('HomePage.Card1')}</p>
+                            <TaskOutlinedIcon fontSize="large"/>
+                            <p>{t('HomePage.Cards.2')}</p>
                         </div>
                         <div className={s.card}>
-                            <NotificationsActiveOutlinedIcon fontSize="large"/>
-                            <p>{t('HomePage.Card1')}</p>
+                            <TrendingDownOutlinedIcon fontSize="large"/>
+                            <p>{t('HomePage.Cards.3')}</p>
                         </div>
                         <div className={s.card}>
-                            <NotificationsActiveOutlinedIcon fontSize="large"/>
-                            <p>{t('HomePage.Card1')}</p>
+                            <GppGoodOutlinedIcon fontSize="large"/>
+                            <p>{t('HomePage.Cards.4')}</p>
                         </div>
                         <div className={s.card}>
-                            <NotificationsActiveOutlinedIcon fontSize="large"/>
-                            <p>{t('HomePage.Card1')}</p>
+                            <HandymanOutlinedIcon fontSize="large"/>
+                            <p>{t('HomePage.Cards.5')}</p>
                         </div>
                         <div className={s.card}>
-                            <NotificationsActiveOutlinedIcon fontSize="large"/>
-                            <p>{t('HomePage.Card1')}</p>
+                            <CloudDownloadOutlinedIcon fontSize="large"/>
+                            <p>{t('HomePage.Cards.6')}</p>
                         </div>
                     </div>
                 </div>

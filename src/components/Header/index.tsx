@@ -31,15 +31,15 @@ function Header() {
                 <ul>
                     <li>
                         <LocalPhoneOutlinedIcon/>
-                        +380 99 888 77 66
+                        <a href="tel:+380 99 888 77 66">+380 99 888 77 66</a>
                     </li>
                     <li>
                         <LocalPhoneOutlinedIcon/>
-                        +380 99 888 77 66
+                        <a href="tel:+380 99 888 77 66">+380 99 888 77 66</a>
                     </li>
                     <li>
                         <EmailOutlinedIcon/>
-                        sales@novabee.net
+                        <a href="mailto:sales@novabee.net">sales@novabee.net</a>
                     </li>
                 </ul>
             </div>

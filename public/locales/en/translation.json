@@ -58,10 +58,39 @@
   "MyOrdersPage": {
     "Order": "Order",
     "StatusChangeDate": "Status change date:",
-    "Status": "Pending",
+    "Status": {
+      "pending": "pending",
+      "accepted": "accepted",
+      "processing": "processing",
+      "sent": "sent",
+      "received": "received",
+      "rejected": "rejected"
+    },
     "Address": "Address:",
     "OrderDate": "Order date",
-    "TotalPrice": "Total price:"
+    "TotalPrice": "Total price:",
+    "Cards": {
+      "637649900164699a8f8b59f4": {
+        "Name": "Basic device - Novabee",
+        "Descr": "This is main device for certain beehive that helps you track temperature and humidity values"
+      },
+      "63764a260164699a8f8b5a03": {
+        "Name": "24 Honeycomb Bottles",
+        "Descr": "Let The Natural Beauty Of Your Honey Shine Through These Crystal Clear Squeeze Bottles. The Embossed Honeycomb On Our Hourglass Design Enhances Your Honey Sales! Precision Machined Openings Ensure The Safety Seals In Our Caps Have Adequate Adhesion."
+      },
+      "63764a4e0164699a8f8b5a09": {
+        "Name": "Zippered replacement veils",
+        "Descr": "These zippered replacement veils fit on our adult size heavy-duty jackets and bee suits."
+      },
+      "637649c80164699a8f8b59f9": {
+        "Name": "Goat Skin Vented Leather Gloves",
+        "Descr": "If you are concerned about your hands or arms getting stung while working with your bees or if you already have gotten stung and know how much it smarts, we encourage you to try these gloves…from our experience they work very well."
+      },
+      "63764a6c0164699a8f8b5a0e": {
+        "Name": "Scraper-Blade Stainless Steel",
+        "Descr": "Solid, crystallized honey is very difficult to pack from large containers into smaller ones. A special spatula for honey will help to avoid such problems."
+      }
+    }
   },
   "CartPage": {
     "Items": "items",
@@ -74,7 +103,7 @@
     "Checkout": "Checkout",
     "EmptyCart": "Cart is empty",
     "EmptyCartDescr": "Add at least one product to make an order.",
-    "Quantity": "Quantity"
+    "Quantity": "Quantity: 1"
   },
   "EquipmentPage": {
     "Materials": "Materials",

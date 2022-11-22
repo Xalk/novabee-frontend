@@ -47,16 +47,18 @@ const Order: React.FC<OrderProps> = () => {
                                 <p className={s.date}><span>{t('MyOrdersPage.StatusChangeDate')} </span>
                                    {new Date(o.updatedAt).toString().slice(0,24)}
                                 </p>
-                                <p className={s.status} style={{backgroundColor: setBgColor(o.status)}}>{o.status}</p>
+                                <p className={s.status} style={{backgroundColor: setBgColor(o.status)}}>
+                                    {t(`MyOrdersPage.Status.${o.status}`)}
+                                </p>
                             </div>
                             <div className={s.products}>
                                 {
                                     o.products.map(p => <div className={s.card}>
                                         <div className={s.product}>
                                             <img src={'http://192.168.0.103:5000'+p.imageUrl} alt="product"/>
-                                            <p className={s.name}>{p.title}</p>
+                                            <p className={s.name}>{t(`MyOrdersPage.Cards.${p._id}.Name`)}</p>
                                         </div>
-                                        <div className={s.quantity}>1 шт</div>
+                                        <div className={s.quantity}>{t(`CartPage.Quantity`)}</div>
                                         <div className={s.price}>₴{p.price}</div>
                                     </div>)
                                 }

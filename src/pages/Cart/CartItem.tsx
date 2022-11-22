@@ -29,7 +29,7 @@ const CartItem: React.FC<CartItemProps> = ({product, index}) => {
         <div className={s.card}>
             <div className={s.product}>
                 <img src={'http://192.168.0.103:5000' + product.imageUrl} alt="product"/>
-                <p className={s.name}>{t(`ShopPage.Cards.${index + 1}.Name`)}</p>
+                <p className={s.name}>{t(`MyOrdersPage.Cards.${product._id}.Name`)}</p>
             </div>
             <div className={s.quantity}>{t(`CartPage.Quantity`)}</div>
             <div className={s.price}>₴{product.price}</div>

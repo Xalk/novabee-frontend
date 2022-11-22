@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import s from "../../components/Header/Header.module.scss";
 import {Link} from "react-router-dom";
 import {useTranslation} from "react-i18next";
@@ -26,7 +26,6 @@ const Navbar : React.FC<NavbarProps> = ({isMenuVisible}) => {
  return (
      <div className={`${s.navbar} ${isMenuVisible ? s.visible : ""}`}>
          <ul>
-             <li>{t('NovabeeSystem')}</li>
              <HashLink to="/#benefits"><li>{t('Benefits')}</li></HashLink>
              <HashLink to="/#howItWorks"><li>{t('HowItWorks')}</li></HashLink>
              <li>{t('Equipment')}</li>

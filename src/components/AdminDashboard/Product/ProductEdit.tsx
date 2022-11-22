@@ -27,7 +27,7 @@ const ProductEdit: React.FC<ProductEditProps> = (props) => {
                             return (
                                 <ImageListItem key={record.imageUrl} sx={{maxWidth: 100}}>
                                     <img
-                                        src={`http://localhost:5000${record.imageUrl}`}
+                                        src={`${process.env.REACT_APP_API_URL}${record.imageUrl}`}
                                     />
                                 </ImageListItem>
                             );

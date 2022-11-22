@@ -64,7 +64,7 @@ const OrderList: React.FC = (props) => {
                                 return (
                                     <ImageListItem key={record.imageUrl} sx={{maxWidth: 50}}>
                                         <img
-                                            src={`http://localhost:5000${record.imageUrl}`}
+                                            src={`${process.env.REACT_APP_API_URL}${record.imageUrl}`}
                                         />
                                     </ImageListItem>
                                 );

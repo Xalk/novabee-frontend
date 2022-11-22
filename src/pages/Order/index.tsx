@@ -55,7 +55,7 @@ const Order: React.FC<OrderProps> = () => {
                                 {
                                     o.products.map(p => <div className={s.card}>
                                         <div className={s.product}>
-                                            <img src={'http://192.168.0.103:5000'+p.imageUrl} alt="product"/>
+                                            <img src={`${process.env.REACT_APP_API_URL}`+p.imageUrl} alt="product"/>
                                             <p className={s.name}>{t(`MyOrdersPage.Cards.${p._id}.Name`)}</p>
                                         </div>
                                         <div className={s.quantity}>{t(`CartPage.Quantity`)}</div>

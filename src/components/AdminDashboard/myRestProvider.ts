@@ -2,7 +2,7 @@ import {fetchUtils} from 'react-admin';
 import {stringify} from 'query-string';
 import {getWithExpiry} from "../../utils/localStorage";
 
-const apiUrl = 'http://localhost:5000/api';
+const apiUrl = `${process.env.REACT_APP_API_URL}/api`;
 // const httpClient = fetchUtils.fetchJson;
 
 const httpClient = (url: any, options: any = {}) => {

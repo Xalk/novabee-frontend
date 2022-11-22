@@ -41,7 +41,7 @@ const ProductItem: React.FC<ProductItemProps> = ({product, index}) => {
         <div className={s.card} key={product._id}>
             <h3>{t(`ShopPage.Cards.${index + 1}.Name`)}</h3>
             <p className={s.price}>₴ {product.price}</p>
-            <img src={'http://192.168.0.103:5000' + product.imageUrl} alt="product"/>
+            <img src={`${process.env.REACT_APP_API_URL}` + product.imageUrl} alt="product"/>
             <p>{t(`ShopPage.Cards.${index + 1}.Descr`)}</p>
 
             {

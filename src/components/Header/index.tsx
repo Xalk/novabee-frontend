@@ -54,7 +54,7 @@ function Header() {
                             <IconButton onClick={() => setIsMenuVisible(prev => !prev)} sx={{marginLeft: '20px'}}>
                                 <MenuRoundedIcon fontSize={'large'}/>
                             </IconButton>
-                        ) : (<Navbar isMenuVisible={isMenuVisible}/>)
+                        ) : (<Navbar isMenuVisible={isMenuVisible} onClickCloseMenu={() => setIsMenuVisible(false)}/>)
                     }
                     <User
                         onClockModalOpen={() => setSigningOpen(true)}/>
@@ -62,7 +62,7 @@ function Header() {
                 </div>
 
             </div>
-            {width < 767 && <Navbar isMenuVisible={isMenuVisible}/>}
+            {width < 767 && <Navbar isMenuVisible={isMenuVisible} onClickCloseMenu={() => setIsMenuVisible(false)}/>}
             <Signing openSigning={openSigning} setSigningOpen={(b) => setSigningOpen(b)}/>
         </header>
     );

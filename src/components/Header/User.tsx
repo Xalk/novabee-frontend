@@ -116,12 +116,12 @@ const User: React.FC<UserProps> = ({onClockModalOpen}) => {
                     <Typography ml={2}>{t('Cart')}</Typography>
                 </MenuItem>
                 <Divider/>
-                <MenuItem>
-                    <ListItemIcon>
-                        <Settings fontSize="small"/>
-                    </ListItemIcon>
-                    {t('Settings')}
-                </MenuItem>
+                {/*<MenuItem>*/}
+                {/*    <ListItemIcon>*/}
+                {/*        <Settings fontSize="small"/>*/}
+                {/*    </ListItemIcon>*/}
+                {/*    {t('Settings')}*/}
+                {/*</MenuItem>*/}
                 {
                     user?.role === 'admin' && <MenuItem onClick={onClickDashboardHandler}>
                         <ListItemIcon>

@@ -7,10 +7,11 @@ import {HashLink} from 'react-router-hash-link';
 
 interface NavbarProps {
     isMenuVisible: boolean
+    onClickCloseMenu ?: ()=>void
 }
 
 
-const Navbar: React.FC<NavbarProps> = ({isMenuVisible}) => {
+const Navbar: React.FC<NavbarProps> = ({isMenuVisible, onClickCloseMenu}) => {
 
     const {t} = useTranslation();
 
@@ -26,20 +27,20 @@ const Navbar: React.FC<NavbarProps> = ({isMenuVisible}) => {
     return (
         <div className={`${s.navbar} ${isMenuVisible ? s.visible : ""}`}>
             <ul>
-                <HashLink to="/#benefits">
+                <HashLink to="/#benefits" onClick={onClickCloseMenu}>
                     <li>{t('Benefits')}</li>
                 </HashLink>
-                <HashLink to="/#howItWorks">
+                <HashLink to="/#howItWorks" onClick={onClickCloseMenu}>
                     <li>{t('HowItWorks')}</li>
                 </HashLink>
-                <Link to="/equipment">
+                <Link to="/equipment" onClick={onClickCloseMenu}>
                     <li>{t('Equipment')}</li>
                 </Link>
 
-                <Link to="/shop">
+                <Link to="/shop" onClick={onClickCloseMenu}>
                     <li>{t('Order')}</li>
                 </Link>
-                <Link to="/faq">
+                <Link to="/faq" onClick={onClickCloseMenu}>
                     <li>FAQ</li>
                 </Link>
 

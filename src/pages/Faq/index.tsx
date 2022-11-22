@@ -32,7 +32,11 @@ const Faq: React.FC<FaqProps> = () => {
             {
                 title: t('FaqPage.q4.title'),
                 content: t('FaqPage.q4.content')
-            }]
+            }],
+        styles:{
+            titleTextColor: 'blue',
+            rowContentColor: 'red'
+        }
     }
 
     return (

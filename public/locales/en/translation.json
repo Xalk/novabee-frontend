@@ -30,6 +30,7 @@
     }
   },
   "ShopPage": {
+    "GoToCart": "Go to cart",
     "Cards": {
       "1": {
         "Name": "Basic device - Novabee",
@@ -74,5 +75,31 @@
     "EmptyCart": "Cart is empty",
     "EmptyCartDescr": "Add at least one product to make an order.",
     "Quantity": "Quantity"
+  },
+  "EquipmentPage": {
+    "Materials": "Materials",
+    "TemperatureSensor": "Temperature Sensor",
+    "Text1": "It simply uses a NodeMCU development board with a WiFi sensor and a DHT11 humidity sensor. In addition, you need a breadboard and connecting wires.",
+    "Text2": "The DHT11 is a basic, digital temperature and humidity sensor. It uses a capacitive humidity sensor and a thermistor to measure the surrounding air and spits out a digital signal on the data pin (no analog input pins needed).",
+    "Text3": "It’s fairly simple to use but requires careful timing to grab data. The only real downside of this sensor is you can only get new data from it once every 2 seconds, so when using the library, sensor readings can be up to 2 seconds old."
+  },
+  "FaqPage": {
+    "Title": "Frequently Asked Questions",
+    "q1": {
+      "title": "What can you power the device?",
+      "content": "Any device that is capable of supporting the device for a long period of time (for example, a power bank)."
+    },
+    "q2": {
+      "title": "Will I be able to contact technical support to install the device?",
+      "content": "Of course, technical support will be able to install the purchased device."
+    },
+    "q3": {
+      "title": "Will the fee be refunded in full if the device is defective?",
+      "content": "Yes, you can return the purchased device and we will refund you all the money, or if you want to replace the device, we can replace it with a working one."
+    },
+    "q4": {
+      "title": "Can I install the device myself?",
+      "content": "Of course, you can use the manual for the device to install it correctly."
+    }
   }
 }

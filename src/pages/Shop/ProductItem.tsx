@@ -45,7 +45,7 @@ const ProductItem: React.FC<ProductItemProps> = ({product, index}) => {
             <p>{t(`ShopPage.Cards.${index + 1}.Descr`)}</p>
 
             {
-                isAddedToCart ? <button onClick={onClickToCart}>Перейти до кошику</button> :
+                isAddedToCart ? <button onClick={onClickToCart}>{t('ShopPage.GoToCart')}</button> :
                     <button onClick={onClickAddToCart}>{t('ShopPage.OrderBtn')}</button>
 
             }

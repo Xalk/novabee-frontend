@@ -5,6 +5,7 @@ import Shop from "./pages/Shop";
 import Cart from "./pages/Cart";
 import Order from "./pages/Order";
 import Faq from "./pages/Faq";
+import Equipment from "./pages/Equipment";
 
 import {Routes, Route} from "react-router-dom";
 import AppContext from "./context";
@@ -13,6 +14,7 @@ import {API, UserAPI} from "./api";
 import AdminDashboard from "./components/AdminDashboard";
 import Layout from "./components/Layout";
 import {IResProduct} from "./api/types";
+
 
 function App() {
     const [isLoading, setIsLoading] = useState(true)
@@ -73,6 +75,7 @@ function App() {
                         <Route path="shop" element={<Shop/>}/>
                         <Route path="cart" element={<Cart/>}/>
                         <Route path="order" element={<Order/>}/>
+                        <Route path="equipment" element={<Equipment/>}/>
                         <Route path="faq" element={<Faq/>}/>
                     </Route>
                     <Route path="/dashboard/*" element={<AdminDashboard/>}/>

@@ -1,0 +1,35 @@
+.container {
+  max-width: 1176px;
+  padding: 50px;
+  margin: 0 auto;
+
+  h2 {
+    font-size: 28px;
+    line-height: 60px;
+    font-weight: bold;
+    margin-bottom: 40px;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 26px;
+    text-align: justify;
+  }
+
+  img {
+    max-width: 50%;
+    display: block;
+    margin: 30px auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    padding: 20px;
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+}

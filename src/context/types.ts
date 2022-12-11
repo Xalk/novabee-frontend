@@ -1,5 +1,7 @@
 import {IResProduct} from "../api/types";
 
+
+
 export interface AppContextInterface {
     user?: IUser | null
     setUser: (data: IUser | null) => void
@@ -10,11 +12,15 @@ export interface AppContextInterface {
     setCart: (data: IProduct[] | null) => void
 }
 
+export interface IResUser {
+    userData: IUser
+    token: string
+}
+
 export interface IUser {
     fullName: string
     email: string
     role: 'user' | 'admin'
-    token: string
 }
 
 export interface IProduct {

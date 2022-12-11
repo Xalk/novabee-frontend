@@ -1,6 +1,6 @@
 import axios from "axios";
 import {IResProduct, IResUserOrder, IUpload, reqUserData} from "./types";
-import {IProduct, IUser} from "../context/types";
+import {IProduct, IResUser, IUser} from "../context/types";
 import {getWithExpiry} from "../utils/localStorage";
 
 
@@ -9,8 +9,8 @@ const token = getWithExpiry('access_key')
 let baseApi = axios.create({
     baseURL: `${process.env.REACT_APP_API_URL}/api`,
     headers: {
-        Authorization: "Bearer " + token
-    }
+        Authorization: "Bearer " + token,
+    },
 })
 
 export const API = {
@@ -39,14 +39,14 @@ export const API = {
 
 export const UserAPI = {
     login(userData: reqUserData) {
-        return baseApi.post<IUser>(`/auth/login`, userData).then(res => res.data);
+        return baseApi.post<IResUser>(`/auth/login`, userData).then(res => res.data);
     },
     getMe() {
         return baseApi.get<IUser>(`/auth/me`).then(res => res.data);
     },
 
     register(userData: reqUserData) {
-        return baseApi.post<IUser>(`/auth/register`, userData).then(res => res.data);
+        return baseApi.post<IResUser>(`/auth/register`, userData).then(res => res.data);
     },
 }
 

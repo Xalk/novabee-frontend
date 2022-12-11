@@ -59,7 +59,7 @@ const SignInForm: React.FC<SignInFormProps> = ({onOpenSignUp, handleClose}) => {
         try {
             const expiredTime = formData.rememberMe ? (2.592 * 10 ** 9) : (9 * 10 ** 5) // 30 days or 15 minutes
             const user = await UserAPI.login(formData)
-            setUser(user)
+            setUser(user.userData)
             setWithExpiry('access_key', user.token, expiredTime)
             handleClose()
             setResponseError('')

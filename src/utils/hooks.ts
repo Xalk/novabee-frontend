@@ -5,6 +5,7 @@ import {useState, useEffect} from 'react';
 export const useAdmin = () => {
     const {user} = useContext(AppContext);
     return user?.role === 'admin'
+
 }
 export const useAuth = () => {
     const {user} = useContext(AppContext);

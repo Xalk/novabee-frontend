@@ -68,7 +68,7 @@ const SignUpForm: React.FC<SignUpFormProps> = ({onOpenSignIn, handleClose}) => {
             }
 
             const user = await UserAPI.register(userData)
-            setUser(user)
+            setUser(user.userData)
             setWithExpiry('access_key', user.token, 2.592 * 10 ** 9)
             handleClose()
             setResponseError('')

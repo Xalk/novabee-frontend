@@ -2,9 +2,9 @@ import React from 'react';
 import s from './Home.module.scss'
 import googlePlayDownload from '../../assets/googlePlayDownload.svg'
 import appleDownload from '../../assets/Apple-download.svg'
-import sliderImageTemp1 from '../../assets/sliderImageTemp1.jpg'
-import sliderImageTemp2 from '../../assets/sliderImageTemp2.jpg'
-import sliderImageTemp3 from '../../assets/sliderImageTemp3.jpg'
+import sliderImageTemp1 from '../../assets/chart.webp'
+import sliderImageTemp2 from '../../assets/apiary.webp'
+import sliderImageTemp3 from '../../assets/queen.webp'
 import {Splide, SplideSlide} from "@splidejs/react-splide";
 import '@splidejs/splide/dist/css/splide.min.css';
 import {useNavigate} from "react-router-dom";

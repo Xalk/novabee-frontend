@@ -23,13 +23,15 @@ import {loginSchema} from "../../utils/validation";
 import {yupResolver} from '@hookform/resolvers/yup';
 import {AxiosError} from "axios";
 import {Alert} from "@mui/material";
+import CancelRoundedIcon from '@mui/icons-material/CancelRounded';
+
 
 function Copyright(props: any) {
     return (
         <Typography variant="body2" color="text.secondary" align="center" {...props}>
-            {'Copyright © '}
+            {'Xalk © '}
             <Link color="inherit" href="https://novabee.vercel.app/">
-                Your Website
+                Novabee
             </Link>{' '}
             {new Date().getFullYear()}
             {'.'}
@@ -37,7 +39,13 @@ function Copyright(props: any) {
     );
 }
 
-const theme = createTheme();
+const theme = createTheme({
+    palette: {
+        primary: {
+            main: '#fab040'
+        }
+    }
+});
 
 
 interface SignInFormProps {
@@ -74,6 +82,7 @@ const SignInForm: React.FC<SignInFormProps> = ({onOpenSignUp, handleClose}) => {
         <ThemeProvider theme={theme}>
             <Container component="main" maxWidth="xs">
                 <CssBaseline/>
+
                 <Box
                     sx={{
                         marginTop: 8,
@@ -83,6 +92,15 @@ const SignInForm: React.FC<SignInFormProps> = ({onOpenSignUp, handleClose}) => {
                     }}
 
                 >
+                    <Box sx={{
+                        position: 'absolute',
+                        top: '10px',
+                        right: 0
+                    }} borderRadius={30}>
+                        <Button onClick={handleClose}>
+                            <CancelRoundedIcon/>
+                        </Button>
+                    </Box>
                     <Avatar sx={{m: 1, bgcolor: "transparent", width: "60px", height: "60px"}}>
                         <img src={logo} alt="logo" className={s.logo} width={50}/>
                     </Avatar>
@@ -123,7 +141,7 @@ const SignInForm: React.FC<SignInFormProps> = ({onOpenSignUp, handleClose}) => {
                             type="submit"
                             fullWidth
                             variant="contained"
-                            sx={{mt: 3, mb: 2}}
+                            sx={{mt: 3, mb: 2, color: 'white'}}
                         >
                             Sign In
                         </Button>

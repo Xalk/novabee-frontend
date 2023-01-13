@@ -20,13 +20,14 @@ import {UserAPI} from "../../api";
 import {setWithExpiry} from "../../utils/localStorage";
 import {AxiosError} from "axios";
 import {Alert} from "@mui/material";
+import CancelRoundedIcon from "@mui/icons-material/CancelRounded";
 
 function Copyright(props: any) {
     return (
         <Typography variant="body2" color="text.secondary" align="center" {...props}>
-            {'Copyright © '}
+            {'Xalk © '}
             <Link color="inherit" href="https://novabee.vercel.app/">
-                Your Website
+                Novabee
             </Link>{' '}
             {new Date().getFullYear()}
             {'.'}
@@ -34,7 +35,13 @@ function Copyright(props: any) {
     );
 }
 
-const theme = createTheme();
+const theme = createTheme({
+    palette: {
+        primary: {
+            main: '#fab040'
+        }
+    },
+});
 
 interface SignUpFormProps {
     onOpenSignIn: () => void
@@ -93,6 +100,16 @@ const SignUpForm: React.FC<SignUpFormProps> = ({onOpenSignIn, handleClose}) => {
                         alignItems: 'center',
                     }}
                 >
+                    <Box sx={{
+                        position: 'absolute',
+                        top: '10px',
+                        right: 0
+                    }} borderRadius={30}>
+                        <Button onClick={handleClose}>
+                            <CancelRoundedIcon/>
+                        </Button>
+                    </Box>
+
                     <Avatar sx={{m: 1, bgcolor: "transparent", width: "60px", height: "60px"}}>
                         <img src={logo} alt="logo" className={s.logo} width={50}/>
                     </Avatar>
@@ -157,7 +174,7 @@ const SignUpForm: React.FC<SignUpFormProps> = ({onOpenSignIn, handleClose}) => {
                             type="submit"
                             fullWidth
                             variant="contained"
-                            sx={{mt: 3, mb: 2}}
+                            sx={{mt: 3, mb: 2, color: 'white'}}
                         >
                             Sign Up
                         </Button>

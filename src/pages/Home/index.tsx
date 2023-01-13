@@ -17,6 +17,7 @@ import TrendingDownOutlinedIcon from '@mui/icons-material/TrendingDownOutlined';
 import GppGoodOutlinedIcon from '@mui/icons-material/GppGoodOutlined';
 import HandymanOutlinedIcon from '@mui/icons-material/HandymanOutlined';
 import CloudDownloadOutlinedIcon from '@mui/icons-material/CloudDownloadOutlined';
+import Link from "@mui/material/Link";
 
 interface HomeProps {
 
@@ -24,7 +25,7 @@ interface HomeProps {
 
 
 const Home: React.FC<HomeProps> = () => {
-    const { t } = useTranslation();
+    const {t} = useTranslation();
 
     const navigate = useNavigate();
     const onClickCartHandler = () => {
@@ -51,8 +52,15 @@ const Home: React.FC<HomeProps> = () => {
                                 {t('Order')}
                             </button>
                             <div className={s.download}>
-                                <img src={googlePlayDownload} alt="google play"/>
-                                <img src={appleDownload} alt="apple store"/>
+                                <Link
+                                    href='https://drive.google.com/file/d/1v0G7TAZQqUgta9VUBiCRIeWTxLTXx9pU/view?usp=share_link'>
+                                    <img src={googlePlayDownload} alt="google play"/>
+                                </Link>
+                                <Link
+                                    href='https://drive.google.com/file/d/1v0G7TAZQqUgta9VUBiCRIeWTxLTXx9pU/view?usp=share_link'>
+                                    <img src={appleDownload} alt="apple store"/>
+                                </Link>
+
                             </div>
                         </div>
                     </div>

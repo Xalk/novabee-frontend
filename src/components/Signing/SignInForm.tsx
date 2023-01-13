@@ -80,7 +80,7 @@ const SignInForm: React.FC<SignInFormProps> = ({onOpenSignUp, handleClose}) => {
 
     return (
         <ThemeProvider theme={theme}>
-            <Container component="main" maxWidth="xs">
+            <Container component="main" maxWidth="lg">
                 <CssBaseline/>
 
                 <Box
@@ -95,7 +95,7 @@ const SignInForm: React.FC<SignInFormProps> = ({onOpenSignUp, handleClose}) => {
                     <Box sx={{
                         position: 'absolute',
                         top: '10px',
-                        right: 0
+                        right: '10px'
                     }} borderRadius={30}>
                         <Button onClick={handleClose}>
                             <CancelRoundedIcon/>

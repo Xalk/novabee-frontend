@@ -103,7 +103,7 @@ const SignUpForm: React.FC<SignUpFormProps> = ({onOpenSignIn, handleClose}) => {
                     <Box sx={{
                         position: 'absolute',
                         top: '10px',
-                        right: 0
+                        right: '10px'
                     }} borderRadius={30}>
                         <Button onClick={handleClose}>
                             <CancelRoundedIcon/>

@@ -18,15 +18,14 @@ import {IResProduct} from "./api/types";
 
 function App() {
     const [isLoading, setIsLoading] = useState(true)
-    const [user, setUser] = useState<IUser | null>()
+    const [user, setUser] = useState<IUser | null>(null)
     const [products, setProducts] = useState<IResProduct | null>(null)
-    const [cart, setCart] = useState<IProduct[] | null>(null)
-
+    const [cart, setCart] = useState<IProduct[]>([])
+    const [openSigning, setSigningOpen] = useState(false);
 
     useEffect(() => {
         initUser()
         fetchProducts()
-        fetchCart()
         setIsLoading(false)
     }, [])
 
@@ -48,15 +47,6 @@ function App() {
         }
     }
 
-    const fetchCart = async () => {
-        try {
-            const resCart = await API.getCart()
-            setCart(resCart)
-        } catch (e) {
-            console.log(e)
-        }
-    }
-
     return (
         <AppContext.Provider value={{
             user,
@@ -65,7 +55,9 @@ function App() {
             setIsLoading,
             products,
             cart,
-            setCart
+            setCart,
+            openSigning,
+            setSigningOpen
         }}>
             <div className="wrapper">
 

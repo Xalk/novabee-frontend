@@ -4,14 +4,20 @@ import {IProduct, IResUser, IUser} from "../context/types";
 import {getWithExpiry} from "../utils/localStorage";
 
 
-const token = getWithExpiry('access_key')
-
 let baseApi = axios.create({
     baseURL: `${process.env.REACT_APP_API_URL}/api`,
-    headers: {
-        Authorization: "Bearer " + token,
-    },
 })
+
+baseApi.interceptors.request.use(
+    config => {
+        const token = getWithExpiry('access_key')
+        if (token) {
+            config.headers!.Authorization = `Bearer ${token}`;
+        }
+        return config;
+    },
+    error => Promise.reject(error)
+)
 
 export const API = {
     upload(formData: FormData) {
@@ -33,6 +39,7 @@ export const API = {
         return baseApi.post(`/order`, {address}).then(res => res.data);
     },
     getUserOrder(){
+        console.log('TOKEN--' + getWithExpiry('access_key'))
         return baseApi.get<IResUserOrder[]>(`/user-orders`).then(res => res.data);
     }
 }

@@ -9,7 +9,6 @@ export const useAdmin = () => {
 }
 export const useAuth = () => {
     const {user} = useContext(AppContext);
-    console.log(Boolean(user))
     return Boolean(user)
 }
 

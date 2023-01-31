@@ -32,10 +32,11 @@ const Cart: React.FC<CartProps> = () => {
 
     const totalPrice = cart?.reduce((a, b) => a + b.price, 0)
 
+
     return (
         <div className={s.container}>
             {
-                cart?.length === 0 ? <div className={s.empty}>
+                cart?.length === 0 || cart === null ? <div className={s.empty}>
                     <img src={emptyBox} alt="emptyBox"/>
                     <h2>{t('CartPage.EmptyCart')}</h2>
                     <p>{t('CartPage.EmptyCartDescr')}</p>

@@ -4,7 +4,8 @@ import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import SignInForm from "./SignInForm";
 import SignUpForm from "./SignUpForm";
-import {useState} from "react";
+import {useContext, useState} from "react";
+import AppContext from "../../context";
 
 const style = {
     position: 'absolute' as 'absolute',
@@ -18,14 +19,11 @@ const style = {
     p: 4,
 };
 
-interface SigningProps {
-    openSigning: boolean
-    setSigningOpen: (b: boolean) => void
-}
 
+const Signing: React.FC = () => {
 
-const Signing: React.FC<SigningProps> = ({openSigning, setSigningOpen}) => {
-    const handleClose = () => setSigningOpen(false);
+    const {setSigningOpen, openSigning} = useContext(AppContext);
+    const handleModalClose = () => setSigningOpen(false);
 
     const [formType, setFormType] = useState<"signIn" | "signUp">("signIn");
 
@@ -33,13 +31,13 @@ const Signing: React.FC<SigningProps> = ({openSigning, setSigningOpen}) => {
         <div>
             <Modal
                 open={openSigning}
-                onClose={handleClose}
+                onClose={handleModalClose}
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={style}>
-                    {formType === "signIn" && <SignInForm onOpenSignUp={() => setFormType("signUp")} handleClose={handleClose} />}
-                    {formType === "signUp" && <SignUpForm onOpenSignIn={() => setFormType("signIn")} handleClose={handleClose}/>}
+                    {formType === "signIn" && <SignInForm onOpenSignUp={() => setFormType("signUp")} />}
+                    {formType === "signUp" && <SignUpForm onOpenSignIn={() => setFormType("signIn")} />}
                 </Box>
             </Modal>
         </div>

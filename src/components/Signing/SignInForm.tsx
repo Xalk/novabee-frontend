@@ -50,12 +50,11 @@ const theme = createTheme({
 
 interface SignInFormProps {
     onOpenSignUp: () => void
-    handleClose: () => void
 }
 
 
-const SignInForm: React.FC<SignInFormProps> = ({onOpenSignUp, handleClose}) => {
-    const {setUser} = useContext(AppContext);
+const SignInForm: React.FC<SignInFormProps> = ({onOpenSignUp}) => {
+    const {setUser, setSigningOpen} = useContext(AppContext);
     const [responseError, setResponseError] = useState('')
 
     const {register, handleSubmit, formState: {errors}} = useForm<reqUserData>({
@@ -69,7 +68,7 @@ const SignInForm: React.FC<SignInFormProps> = ({onOpenSignUp, handleClose}) => {
             const user = await UserAPI.login(formData)
             setUser(user.userData)
             setWithExpiry('access_key', user.token, expiredTime)
-            handleClose()
+            setSigningOpen(false)
             setResponseError('')
         } catch (err: any | AxiosError) {
             console.log(err)
@@ -97,7 +96,7 @@ const SignInForm: React.FC<SignInFormProps> = ({onOpenSignUp, handleClose}) => {
                         top: '10px',
                         right: '10px'
                     }} borderRadius={30}>
-                        <Button onClick={handleClose}>
+                        <Button onClick={()=>setSigningOpen(false)}>
                             <CancelRoundedIcon/>
                         </Button>
                     </Box>

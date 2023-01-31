@@ -40,6 +40,7 @@ const User: React.FC<UserProps> = ({onClockModalOpen}) => {
     const onClickLogout = () => {
         setUser(null)
         localStorage.removeItem('access_key')
+        navigate("/");
     }
 
     const onClickOrderHandler = () => navigate("/order");

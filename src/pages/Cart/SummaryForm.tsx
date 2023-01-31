@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import s from "./Cart.module.scss";
 import {TextField} from "@mui/material";
 import {useTranslation} from "react-i18next";
@@ -6,6 +6,8 @@ import {useForm, SubmitHandler} from "react-hook-form";
 import {API} from "../../api";
 import loader from '../../assets/loader.svg'
 import {useNavigate} from "react-router-dom";
+import AppContext from "../../context";
+import {useAuth} from "../../utils/hooks";
 
 
 interface SummaryFormProps {
@@ -20,15 +22,25 @@ type Inputs = {
 
 const SummaryForm: React.FC<SummaryFormProps> = ({cartLength, totalPrice}) => {
     const {t} = useTranslation();
+    const {setSigningOpen} = useContext(AppContext);
+
     const navigate = useNavigate()
     const {register, handleSubmit, formState: {errors}} = useForm<Inputs>();
     const [isLoading, setIsLoading] = useState(false)
+    const isAuth = useAuth()
+
+
     const onSubmit: SubmitHandler<Inputs> = async (data) => {
         try {
-            setIsLoading(true)
-            await API.postOrder(data)
-            navigate('/order')
-            setIsLoading(false)
+            if (!isAuth) {
+                setSigningOpen(true)
+            } else {
+                setIsLoading(true)
+                await API.postOrder(data)
+                navigate('/order')
+                setIsLoading(false)
+            }
+
 
         } catch (e) {
             console.log(e)

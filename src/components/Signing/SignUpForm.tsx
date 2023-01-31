@@ -45,7 +45,6 @@ const theme = createTheme({
 
 interface SignUpFormProps {
     onOpenSignIn: () => void
-    handleClose: () => void
 }
 
 type SignUpFields = {
@@ -55,9 +54,9 @@ type SignUpFields = {
     lastName: string
 }
 
-const SignUpForm: React.FC<SignUpFormProps> = ({onOpenSignIn, handleClose}) => {
+const SignUpForm: React.FC<SignUpFormProps> = ({onOpenSignIn}) => {
 
-    const {setUser} = useContext(AppContext);
+    const {setUser, setSigningOpen} = useContext(AppContext);
     const [responseError, setResponseError] = useState('')
 
     const {register, handleSubmit, formState: {errors}} = useForm<SignUpFields>({
@@ -77,7 +76,7 @@ const SignUpForm: React.FC<SignUpFormProps> = ({onOpenSignIn, handleClose}) => {
             const user = await UserAPI.register(userData)
             setUser(user.userData)
             setWithExpiry('access_key', user.token, 2.592 * 10 ** 9)
-            handleClose()
+            setSigningOpen(false)
             setResponseError('')
 
 
@@ -105,7 +104,7 @@ const SignUpForm: React.FC<SignUpFormProps> = ({onOpenSignIn, handleClose}) => {
                         top: '10px',
                         right: '10px'
                     }} borderRadius={30}>
-                        <Button onClick={handleClose}>
+                        <Button onClick={()=>setSigningOpen(false)}>
                             <CancelRoundedIcon/>
                         </Button>
                     </Box>

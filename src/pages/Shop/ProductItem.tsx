@@ -5,6 +5,7 @@ import {useTranslation} from "react-i18next";
 import {API} from "../../api";
 import AppContext from "../../context";
 import {useNavigate} from "react-router-dom";
+import {useAuth} from "../../utils/hooks";
 
 interface ProductItemProps {
     product: IProduct
@@ -15,15 +16,21 @@ interface ProductItemProps {
 const ProductItem: React.FC<ProductItemProps> = ({product, index}) => {
 
     const navigate = useNavigate()
-    const {cart} = useContext(AppContext);
+    const {cart, setCart} = useContext(AppContext);
     const isAdded = cart?.some(c => c._id === product._id)
 
     const {t} = useTranslation();
     const [isAddedToCart, setIsAddedToCart] = useState(isAdded)
+
+    const isAuth = useAuth()
     const onClickAddToCart = async () => {
         try {
+            if(!isAuth){
+                setCart([...cart, product])
+            }else {
+                await API.addToCart(product._id)
+            }
             setIsAddedToCart(true)
-            await API.addToCart(product._id)
         } catch (e) {
             console.log(e)
         }

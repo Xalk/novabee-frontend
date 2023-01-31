@@ -8,8 +8,10 @@ export interface AppContextInterface {
     isLoading?: boolean
     setIsLoading?: (b: boolean) => void
     products: IResProduct | null
-    cart: IProduct[] | null
-    setCart: (data: IProduct[] | null) => void
+    cart: IProduct[]
+    setCart: (data: IProduct[]) => void
+    openSigning: boolean
+    setSigningOpen: (b: boolean) => void
 }
 
 export interface IResUser {

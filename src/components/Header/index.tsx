@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useState} from "react";
+import {useContext, useState} from "react";
 import s from './Header.module.scss'
 import logoWithName from '../../assets/logoWithName.svg';
 import logo from '../../assets/logo.svg';
@@ -14,12 +14,14 @@ import Signing from "../Signing";
 import IconButton from "@mui/material/IconButton";
 import useWindowDimensions from "../../utils/hooks";
 import Navbar from "../../pages/Home/Navbar";
+import AppContext from "../../context";
 
 
 function Header() {
 
+    const {setSigningOpen} = useContext(AppContext);
 
-    const [openSigning, setSigningOpen] = useState(false);
+
     const [isMenuVisible, setIsMenuVisible] = useState(false)
 
 
@@ -63,7 +65,7 @@ function Header() {
 
             </div>
             {width < 767 && <Navbar isMenuVisible={isMenuVisible} onClickCloseMenu={() => setIsMenuVisible(false)}/>}
-            <Signing openSigning={openSigning} setSigningOpen={(b) => setSigningOpen(b)}/>
+            <Signing/>
         </header>
     );
 }

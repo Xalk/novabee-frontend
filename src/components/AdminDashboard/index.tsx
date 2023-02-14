@@ -10,7 +10,8 @@ import OrderList from "./Order/OrderList";
 import OrderEdit from "./Order/OrderEdit";
 import MyLayout from "./AdminLayout";
 import {useNavigate} from "react-router-dom";
-import {useAdmin, useAuth} from "../../utils/hooks";
+import {useAuth} from "../../utils/hooks/useAuth";
+import {useAdmin} from "../../utils/hooks/useAdmin";
 
 interface AdminDashboardProps {
 

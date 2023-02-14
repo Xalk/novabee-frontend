@@ -5,7 +5,7 @@ import {useTranslation} from "react-i18next";
 import {API} from "../../api";
 import AppContext from "../../context";
 import {useNavigate} from "react-router-dom";
-import {useAuth} from "../../utils/hooks";
+import {useAuth} from "../../utils/hooks/useAuth";
 
 interface ProductItemProps {
     product: IProduct

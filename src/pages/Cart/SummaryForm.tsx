@@ -7,7 +7,7 @@ import {API} from "../../api";
 import loader from '../../assets/loader.svg'
 import {useNavigate} from "react-router-dom";
 import AppContext from "../../context";
-import {useAuth} from "../../utils/hooks";
+import {useAuth} from "../../utils/hooks/useAuth";
 
 
 interface SummaryFormProps {

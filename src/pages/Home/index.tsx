@@ -9,7 +9,7 @@ import {Splide, SplideSlide} from "@splidejs/react-splide";
 import '@splidejs/splide/dist/css/splide.min.css';
 import {useNavigate} from "react-router-dom";
 import {useTranslation} from "react-i18next";
-import useWindowDimensions from "../../utils/hooks";
+import useWindowDimensions from "../../utils/hooks/useWindowDimensions";
 
 import NotificationsActiveOutlinedIcon from '@mui/icons-material/NotificationsActiveOutlined';
 import TaskOutlinedIcon from '@mui/icons-material/TaskOutlined';

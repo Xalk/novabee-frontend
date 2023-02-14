@@ -1,5 +1,5 @@
-import {IProduct} from "../components/AdminDashboard/types";
-import {API} from "../api";
+import {IProduct} from "../../components/AdminDashboard/types";
+import {API} from "../../api";
 
 export const useProductUploadImage =  async (data: IProduct) => {
     try {

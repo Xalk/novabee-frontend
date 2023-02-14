@@ -2,7 +2,7 @@ import React from 'react';
 import {Edit, SimpleForm, TextInput, NumberInput, ImageField, ImageInput, FunctionField} from 'react-admin';
 import {IProduct} from "../types";
 import {ImageListItem} from "@mui/material";
-import {useProductUploadImage} from "../../../utils/useUploadImage";
+import {useProductUploadImage} from "../../../utils/hooks/useUploadImage";
 
 interface ProductEditProps {
 

@@ -1,17 +1,4 @@
-import {useContext} from "react";
-import AppContext from "../context";
-import {useState, useEffect} from 'react';
-
-export const useAdmin = () => {
-    const {user} = useContext(AppContext);
-    return user?.role === 'admin'
-
-}
-export const useAuth = () => {
-    const {user} = useContext(AppContext);
-    return Boolean(user)
-}
-
+import {useEffect, useState} from "react";
 
 function getWindowDimensions() {
     const {innerWidth: width, innerHeight: height} = window;

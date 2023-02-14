@@ -23,6 +23,8 @@ function App() {
     const [cart, setCart] = useState<IProduct[]>([])
     const [openSigning, setSigningOpen] = useState(false);
 
+
+
     useEffect(() => {
         initUser()
         fetchProducts()
@@ -46,6 +48,10 @@ function App() {
             console.log(e)
         }
     }
+
+    console.log('RENDER')
+    console.log('USER'+ user)
+
 
     return (
         <AppContext.Provider value={{

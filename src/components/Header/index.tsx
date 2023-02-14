@@ -12,7 +12,7 @@ import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import User from "./User";
 import Signing from "../Signing";
 import IconButton from "@mui/material/IconButton";
-import useWindowDimensions from "../../utils/hooks";
+import useWindowDimensions from "../../utils/hooks/useWindowDimensions";
 import Navbar from "../../pages/Home/Navbar";
 import AppContext from "../../context";
 

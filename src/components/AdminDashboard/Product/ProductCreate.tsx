@@ -8,7 +8,7 @@ import {
     ImageField
 } from 'react-admin'
 
-import {useProductUploadImage} from "../../../utils/useUploadImage";
+import {useProductUploadImage} from "../../../utils/hooks/useUploadImage";
 
 
 const ProductCreate: React.FC = () => {

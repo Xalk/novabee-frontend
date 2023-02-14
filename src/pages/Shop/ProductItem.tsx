@@ -1,11 +1,11 @@
-import React, {useContext, useState} from 'react';
+import React,  {useState} from 'react';
 import s from "./Shop.module.scss";
 import {IProduct} from "../../context/types";
 import {useTranslation} from "react-i18next";
 import {API} from "../../api";
-import AppContext from "../../context";
 import {useNavigate} from "react-router-dom";
 import {useAuth} from "../../utils/hooks/useAuth";
+import useAppContext from "../../utils/hooks/useAppContext";
 
 interface ProductItemProps {
     product: IProduct
@@ -16,7 +16,7 @@ interface ProductItemProps {
 const ProductItem: React.FC<ProductItemProps> = ({product, index}) => {
 
     const navigate = useNavigate()
-    const {cart, setCart} = useContext(AppContext);
+    const {cart, setCart} = useAppContext();
     const isAdded = cart?.some(c => c._id === product._id)
 
     const {t} = useTranslation();

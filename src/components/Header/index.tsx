@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useContext, useState} from "react";
+import {useState} from "react";
 import s from './Header.module.scss'
 import logoWithName from '../../assets/logoWithName.svg';
 import logo from '../../assets/logo.svg';
@@ -15,11 +15,12 @@ import IconButton from "@mui/material/IconButton";
 import useWindowDimensions from "../../utils/hooks/useWindowDimensions";
 import Navbar from "../../pages/Home/Navbar";
 import AppContext from "../../context";
+import useAppContext from "../../utils/hooks/useAppContext";
 
 
 function Header() {
 
-    const {setSigningOpen} = useContext(AppContext);
+    const {setSigningOpen} = useAppContext();
 
 
     const [isMenuVisible, setIsMenuVisible] = useState(false)

@@ -1,11 +1,11 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import s from './Cart.module.scss'
 import emptyBox from '../../assets/emptyBox.png'
 import {useTranslation} from "react-i18next";
-import AppContext from "../../context";
 import CartItem from "./CartItem";
 import {API} from "../../api";
 import SummaryForm from "./SummaryForm";
+import useAppContext from "../../utils/hooks/useAppContext";
 
 interface CartProps {
 
@@ -15,7 +15,7 @@ interface CartProps {
 const Cart: React.FC<CartProps> = () => {
     const {t} = useTranslation();
 
-    const {cart, setCart} = useContext(AppContext);
+    const {cart, setCart} = useAppContext();
 
     useEffect(() => {
         fetchCart()

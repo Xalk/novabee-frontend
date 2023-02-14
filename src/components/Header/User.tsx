@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import s from "./Header.module.scss";
 import IconButton from "@mui/material/IconButton";
 import avatarBeekeeper from "../../assets/avatarBeekeeper.svg";
@@ -6,7 +6,6 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Divider from "@mui/material/Divider";
 import ListItemIcon from "@mui/material/ListItemIcon";
-import Settings from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import InventoryRoundedIcon from '@mui/icons-material/InventoryRounded';
@@ -15,6 +14,7 @@ import {Typography} from "@mui/material";
 import {useNavigate} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 import AppContext from "../../context";
+import useAppContext from "../../utils/hooks/useAppContext";
 
 interface UserProps {
     onClockModalOpen: () => void
@@ -23,7 +23,7 @@ interface UserProps {
 
 const User: React.FC<UserProps> = ({onClockModalOpen}) => {
 
-    const {user, setUser} = useContext(AppContext);
+    const {user, setUser} = useAppContext();
 
     const {t} = useTranslation();
 

@@ -1,8 +1,8 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import s from './Shop.module.scss'
 import {useTranslation} from "react-i18next";
-import AppContext from "../../context";
 import ProductItem from "./ProductItem";
+import useAppContext from "../../utils/hooks/useAppContext";
 
 
 interface ShopProps {
@@ -13,7 +13,7 @@ interface ShopProps {
 const Shop: React.FC<ShopProps> = () => {
     const {t} = useTranslation();
 
-    const {products} = useContext(AppContext);
+    const {products} = useAppContext();
 
 
 

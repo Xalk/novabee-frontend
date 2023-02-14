@@ -13,8 +13,7 @@ import Container from '@mui/material/Container';
 import {createTheme, ThemeProvider} from '@mui/material/styles';
 import logo from "../../assets/logo.svg";
 import s from "../Header/Header.module.scss";
-import {useContext, useState} from "react";
-import AppContext from "../../context";
+import {useState} from "react";
 import {UserAPI} from "../../api";
 import {setWithExpiry} from "../../utils/localStorage";
 import {reqUserData} from "../../api/types";
@@ -24,6 +23,7 @@ import {yupResolver} from '@hookform/resolvers/yup';
 import {AxiosError} from "axios";
 import {Alert} from "@mui/material";
 import CancelRoundedIcon from '@mui/icons-material/CancelRounded';
+import useAppContext from "../../utils/hooks/useAppContext";
 
 
 function Copyright(props: any) {
@@ -54,7 +54,7 @@ interface SignInFormProps {
 
 
 const SignInForm: React.FC<SignInFormProps> = ({onOpenSignUp}) => {
-    const {setUser, setSigningOpen} = useContext(AppContext);
+    const {setUser, setSigningOpen} = useAppContext();
     const [responseError, setResponseError] = useState('')
 
     const {register, handleSubmit, formState: {errors}} = useForm<reqUserData>({

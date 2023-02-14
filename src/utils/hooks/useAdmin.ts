@@ -1,8 +1,6 @@
-import {useContext} from "react";
-import AppContext from "../../context";
+import useAppContext from "./useAppContext";
 
 export const useAdmin = () => {
-    const {user} = useContext(AppContext);
+    const {user} = useAppContext();
     return user?.role === 'admin'
-
 }

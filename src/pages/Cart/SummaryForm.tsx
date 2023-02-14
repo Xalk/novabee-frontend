@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useState} from 'react';
 import s from "./Cart.module.scss";
 import {TextField} from "@mui/material";
 import {useTranslation} from "react-i18next";
@@ -6,8 +6,8 @@ import {useForm, SubmitHandler} from "react-hook-form";
 import {API} from "../../api";
 import loader from '../../assets/loader.svg'
 import {useNavigate} from "react-router-dom";
-import AppContext from "../../context";
 import {useAuth} from "../../utils/hooks/useAuth";
+import useAppContext from "../../utils/hooks/useAppContext";
 
 
 interface SummaryFormProps {
@@ -22,7 +22,7 @@ type Inputs = {
 
 const SummaryForm: React.FC<SummaryFormProps> = ({cartLength, totalPrice}) => {
     const {t} = useTranslation();
-    const {setSigningOpen} = useContext(AppContext);
+    const {setSigningOpen} = useAppContext();
 
     const navigate = useNavigate()
     const {register, handleSubmit, formState: {errors}} = useForm<Inputs>();

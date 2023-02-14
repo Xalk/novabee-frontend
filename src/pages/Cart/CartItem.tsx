@@ -1,10 +1,10 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import s from "./Cart.module.scss";
 import HighlightOffOutlinedIcon from "@mui/icons-material/HighlightOffOutlined";
 import {IProduct} from "../../context/types";
 import {API} from "../../api";
-import AppContext from "../../context";
 import {useTranslation} from "react-i18next";
+import useAppContext from "../../utils/hooks/useAppContext";
 
 interface CartItemProps {
     product: IProduct
@@ -14,7 +14,7 @@ interface CartItemProps {
 
 const CartItem: React.FC<CartItemProps> = ({product, index}) => {
     const {t} = useTranslation();
-    const {cart, setCart} = useContext(AppContext);
+    const {cart, setCart} = useAppContext();
 
     const onClickRemove = async () => {
         try {
